@@ -1,0 +1,67 @@
+.sidebar{
+  height: 100%;
+  width:18%;
+  background-color: rgb(9, 14, 29);
+}
+
+.sidebar main{
+  display: flex;
+  flex-direction:column;
+  padding-left: .2rem;
+}
+
+header{
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color:white;
+}
+
+header h1{
+  font-size: 24px;
+}
+
+.special-txt {
+  color:rgb(241, 132, 8);
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+  margin-right: .2rem;
+  margin-left: 2.5rem;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.links ul {
+  list-style: none;
+}
+
+.links li  {
+  margin-bottom: 1.5rem;
+}
+
+.links a{
+  text-decoration: none;
+  color:rgb(214, 214, 214);
+  font-weight: 600;
+  padding: .5rem;
+  padding-right: 3.5rem;
+  padding-left: 3.5rem;
+}
+
+.links a:hover{
+  width: 100%;
+  background-color:orange;
+  color: rgb(22, 22, 87);
+  border-radius: 5px;
+}
+

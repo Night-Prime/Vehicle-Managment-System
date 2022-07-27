@@ -1,0 +1,36 @@
+<div class="container">
+  <main>
+    <header class="log-head">
+      <!-- Navbar-login -->
+      <img src = "../../../assets/engineering-colored.png" />
+      <h1>Nova<span class="special-txt">Q</span></h1>
+    </header>
+    <section class="log-parts">
+      <div class="log-body">
+        <h5 class="text-header-5">Subscribe to our new features.</h5>
+        <h3 class="text-header-3">Your vehicle maintenance is of uptmost priority</h3>
+        <h1 class="text-header">Login into your <span class="special-txt">Service Space!</span></h1>
+
+        <form [formGroup]="Login" (ngSubmit)="login()">
+          <input type="email"
+            name="email"
+            id="email"
+            placeholder="Enter Registered Email"
+            formControlName="email"
+            autocomplete="off"
+            required />
+          <input type="password"
+            name="password"
+            id="password"
+            placeholder="Enter Password"
+            formControlName="password"
+            required />
+          <button
+          [disabled]="!Login.valid">
+              Login
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+</div>
