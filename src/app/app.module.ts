@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LottieModule } from 'ngx-lottie';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,6 +31,7 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    FontAwesomeModule,
     LottieModule,
     ReactiveFormsModule,
     AppRoutingModule

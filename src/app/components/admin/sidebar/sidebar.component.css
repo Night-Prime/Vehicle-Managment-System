@@ -1,6 +1,7 @@
 .sidebar{
   height: 100%;
-  width:18%;
+  width:98%;
+  border: 0px 2px 2px solid rgb(16, 34, 165);
   background-color: rgb(9, 14, 29);
 }
 
@@ -46,21 +47,24 @@ header img {
 }
 
 .links li  {
+  display: flex;
+  flex-direction:row;
+  align-items: baseline;
   margin-bottom: 1.5rem;
+  color:white;
+  padding: .5rem;
 }
 
 .links a{
   text-decoration: none;
   color:rgb(214, 214, 214);
   font-weight: 600;
-  padding: .5rem;
   padding-right: 3.5rem;
-  padding-left: 3.5rem;
+  padding-left: 1rem;
 }
 
-.links a:hover{
-  width: 100%;
-  background-color:orange;
+.links li:hover{
+  background-color:rgb(241, 132, 8);
   color: rgb(22, 22, 87);
   border-radius: 5px;
 }

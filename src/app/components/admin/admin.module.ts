@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { ClientComponent } from './client/client.component';
 import { InvoiceComponent } from './invoice/invoice.component';
@@ -24,6 +25,7 @@ import { StaffComponent } from './staff/staff.component';
   imports: [
     CommonModule,
     AdminRoutingModule,
+    FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule
   ]
