@@ -15,7 +15,7 @@ const routes: Routes = [
       {path: 'invoice', component:InvoiceComponent},
       {path: 'service', component:ServiceComponent},
       {path: 'vehicle', component:VehicleComponent},
-      {path: 'staff', component:StaffComponent}
+      {path: 'user', component:StaffComponent}
     ]
   }
 ]

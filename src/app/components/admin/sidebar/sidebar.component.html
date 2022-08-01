@@ -24,7 +24,7 @@
         </li>
         <li>
           <fa-icon [icon]="fastaff"></fa-icon>
-          <a routerLink="staff">Staffs</a>
+          <a routerLink="user">Staffs</a>
         </li>
         <li>
           <fa-icon [icon]="faservice"></fa-icon>
@@ -32,5 +32,11 @@
         </li>
       </ul>
     </section>
+    <footer>
+      <button (click)="signOut()">
+        <fa-icon [icon]="fasignout"></fa-icon>
+        Log Out
+      </button>
+    </footer>
   </main>
 </section>

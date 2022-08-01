@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { faHome, faHeadset, faFileInvoice, faPen, faServer, faUser, faCar, faUserAstronaut} from '@fortawesome/free-solid-svg-icons';
+import { faHome, faHeadset, faFileInvoice, faPen, faServer, faUser, faCar, faUserAstronaut, faSignOut} from '@fortawesome/free-solid-svg-icons';
+import {AuthServiceService} from '../../../shared/services/auth-service.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,6 +8,7 @@ import { faHome, faHeadset, faFileInvoice, faPen, faServer, faUser, faCar, faUse
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  userStatus:any;
 
   fahome = faHome;
   faclient = faHeadset;
@@ -16,10 +18,17 @@ export class SidebarComponent implements OnInit {
   fastaff = faUser;
   favehicle = faCar;
   faprofile = faUserAstronaut;
+  fasignout = faSignOut;
 
-  constructor() { }
+  constructor(private service: AuthServiceService) {
+   }
 
   ngOnInit(): void {
+  }
+
+  signOut() {
+  //  this.userStatus = this.service.logOut();
+  //  console.log('Logged Out!');
   }
 
 }

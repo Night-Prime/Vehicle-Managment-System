@@ -17,4 +17,7 @@
 
 .body{
   flex:5;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }

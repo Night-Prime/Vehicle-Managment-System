@@ -1,0 +1,45 @@
+nav{
+  width: 100%;
+  color: rgb(16, 29, 73);
+  background-color:rgb(240, 238, 238);
+  padding:.5rem;
+  border: 2px solid var(--bluebackground) ;
+  border-top: 0;
+  border-left: 0;
+}
+
+main{
+  display: flex;
+  flex-direction:row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header{
+  margin-left: 3.5rem;
+}
+
+.bar, .bar input{
+  padding-left: 5rem;
+}
+
+.bar input{
+  width: 200px;
+  padding: .25rem;
+  border-radius: 5px;
+  margin-left: .2rem;
+  margin-right: .2rem;
+  cursor: pointer;
+}
+
+.config{
+  position: absolute;
+  right:5rem;
+  display: flex;
+  align-items: center;
+}
+
+.config fa-icon{
+  cursor:pointer;
+  margin-left: 20px;
+}

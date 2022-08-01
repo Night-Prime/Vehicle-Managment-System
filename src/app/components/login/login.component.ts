@@ -10,7 +10,7 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
 })
 export class LoginComponent implements OnInit {
   constructor(private service:AuthServiceService, private router:Router) {
-    this.service.logOut();
+  //  this.service.logOut();
    }
 
   responseData:any
@@ -37,6 +37,8 @@ export class LoginComponent implements OnInit {
       })
     }
   }
+
+
 
   ngOnInit(): void {
   }

@@ -21,8 +21,8 @@ const routes: Routes = [
       { path: 'service', component:ServiceComponent, canActivate:[AuthGuard]},
       { path: 'vehicle', component:VehicleComponent, canActivate:[AuthGuard]},
       { path: 'user', component:StaffComponent, canActivate:[AuthGuard]},
-      {path: '**' ,component:PagenotfoundComponent, canActivate:[AuthGuard]},
-      { path: '', redirectTo:'home', pathMatch: 'full'}
+      { path: '', redirectTo:'home', pathMatch: 'full'},
+      {path: '**' ,component:PagenotfoundComponent}
     ]
   }
 ];
