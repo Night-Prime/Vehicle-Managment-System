@@ -1,0 +1,16 @@
+<div class="card">
+  <div class="card-section">
+    <div  class="card-icons">
+          <!-- fa icons -->
+        <ng-content></ng-content> 
+    </div>
+    <div class="card-text">
+      <!-- Text here-->
+      <ng-content select="[card-text]"></ng-content>
+    </div>
+    <div class="card-figure">
+        <!-- figure here -->
+        <ng-content select="[card-figure]"></ng-content>
+    </div>
+  </div>
+</div>

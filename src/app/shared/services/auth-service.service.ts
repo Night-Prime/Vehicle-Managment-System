@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +26,20 @@ export class AuthServiceService {
   userLogin(user: any) {
     return this.http.post(this.LOGIN_URL, user)
   }
-
+  
+  //logging out
   logOut() {
     localStorage.clear();
   }
 
   IsLoggedIn() {
     return localStorage.getItem('token')!=null;
+  }
+
+  // consuming each endpoints
+
+  // clients
+  GetAllClient() {
+    return this.http.get(`${this.BASE_URL + this.endpoint.client}`)
   }
 }

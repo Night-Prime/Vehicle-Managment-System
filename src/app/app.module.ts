@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LottieModule } from 'ngx-lottie';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgChartsModule } from 'ng2-charts';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,7 @@ import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+
 
 
 
@@ -32,6 +34,7 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
     FormsModule,
     HttpClientModule,
     FontAwesomeModule,
+    NgChartsModule,
     LottieModule,
     ReactiveFormsModule,
     AppRoutingModule

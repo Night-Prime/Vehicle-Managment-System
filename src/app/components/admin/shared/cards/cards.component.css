@@ -1,0 +1,29 @@
+:host{
+  height: 25%;
+}
+.card {
+  width: 10rem;
+  height: 8rem;
+  background-color:rgba(3, 32, 117, 0.568);
+  margin-top: 1rem;
+  border-radius: 10px;
+  margin-right: 2rem;
+  border: 1px solid rgb(9, 14, 29);
+
+}
+
+.card-section{
+  padding: 1rem;
+  padding-left: 1rem;
+  display: flex;
+  flex-direction:column;
+}
+
+.card-text{
+  font-size: 8px;
+  color:rgb(228, 190, 119);
+}
+
+.card-figure{
+  font-size: 14px;
+}

@@ -1,1 +1,38 @@
-<p>board works!</p>
+<section>
+    <main>
+        <header>
+            <h1 class="head-text">Overview</h1>
+        </header>
+        <section class="card">
+          <app-cards>
+            <fa-icon [icon]="facar" class="fa-3x"></fa-icon>
+            <h1 card-text>Register vehicle for proper documentation</h1>
+            <h1 card-figure> 12</h1>
+          </app-cards>
+          <app-cards>
+            <fa-icon [icon]="faclient" class="fa-3x"></fa-icon>
+            <h1 card-text>Client's details should be registered</h1>
+            <h1 card-figure>4</h1>
+          </app-cards>
+          <app-cards>
+            <fa-icon [icon]="fauser" class="fa-3x"></fa-icon>
+            <h1 card-text>Employee's information and roles access</h1>
+            <h1 card-figure>21</h1>
+          </app-cards>
+          <app-cards>
+            <fa-icon [icon]="fainvoice" class="fa-3x"></fa-icon>
+            <h1 card-text>Invoices and transaction information for vehicles</h1>
+            <h1 card-figure>3</h1>
+          </app-cards>
+        </section>
+        <section class="chart">
+          <canvas baseChart
+            [labels]="doughnutChartLabels"
+            [datasets]="doughnutChartDatasets"
+            [options]="doughnutChartOptions"
+            [legend]="true"
+            [type]="'doughnut'">
+          </canvas>
+        </section>
+    </main>
+</section>
