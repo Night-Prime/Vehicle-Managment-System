@@ -1,0 +1,22 @@
+<main>
+  <div class="doughnut-chart" style=" height:20vh; width:60vw">
+    <!-- doughnut Chart -->
+    <canvas baseChart
+      [labels]="doughnutChartLabels"
+      [datasets]="doughnutChartDatasets"
+      [options]="doughnutChartOptions"
+      [legend]="true"
+      [type]="'doughnut'">
+    </canvas>
+  </div>
+  <!-- Bar Chart -->
+  <div class="bar-chart"  style=" height:20vh; width:60vw">
+    <canvas baseChart
+      [data]="barChartData"
+      [options]="barChartOptions"
+      [plugins]="barChartPlugins"
+      [legend]="barChartLegend"
+      [type]="'bar'">
+    </canvas>
+  </div>
+</main>

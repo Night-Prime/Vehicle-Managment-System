@@ -13,6 +13,8 @@ import { ServiceComponent } from './service/service.component';
 import { BoardComponent } from './board/board.component';
 import { StaffComponent } from './staff/staff.component';
 import { CardsComponent } from './shared/cards/cards.component';
+import { ChartsComponent } from './shared/charts/charts.component';
+import { TablesComponent } from './shared/tables/tables.component';
 
 
 
@@ -24,7 +26,9 @@ import { CardsComponent } from './shared/cards/cards.component';
     ServiceComponent,
     BoardComponent,
     StaffComponent,
-    CardsComponent
+    CardsComponent,
+    ChartsComponent,
+    TablesComponent
   ],
   imports: [
     CommonModule,

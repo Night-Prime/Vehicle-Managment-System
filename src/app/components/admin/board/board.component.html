@@ -1,8 +1,9 @@
 <section>
+  <header>
+    <h1 class="head-text">Overview</h1>
+  </header>
     <main>
-        <header>
-            <h1 class="head-text">Overview</h1>
-        </header>
+      <!-- Card section -->
         <section class="card">
           <app-cards>
             <fa-icon [icon]="facar" class="fa-3x"></fa-icon>
@@ -25,14 +26,13 @@
             <h1 card-figure>3</h1>
           </app-cards>
         </section>
+        <!-- Chart Section -->
         <section class="chart">
-          <canvas baseChart
-            [labels]="doughnutChartLabels"
-            [datasets]="doughnutChartDatasets"
-            [options]="doughnutChartOptions"
-            [legend]="true"
-            [type]="'doughnut'">
-          </canvas>
+          <app-charts></app-charts>
+        </section>
+        <!-- Table Section -->
+        <section class="tables">
+          <app-tables></app-tables>
         </section>
     </main>
 </section>

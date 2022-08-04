@@ -1,0 +1,19 @@
+<h1>Recent Clients</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Telephone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of ClientList">
+      <td>{{client.id}}</td>
+      <td>{{client.name}}</td>
+      <td>{{client.email}}</td>
+      <td>{{client.telephone}}</td>
+    </tr>
+  </tbody>
+</table>

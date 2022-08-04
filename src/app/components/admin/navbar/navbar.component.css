@@ -6,6 +6,7 @@ nav{
   border: 2px solid var(--bluebackground) ;
   border-top: 0;
   border-left: 0;
+  margin-left: 0.7rem;
 }
 
 main{

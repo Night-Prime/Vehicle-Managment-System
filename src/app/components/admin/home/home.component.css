@@ -1,6 +1,6 @@
 .layout{
-  width: 1366px;
-  height: 768px;
+  width: 100vw;
+  height: 1480px;
 }
 
 .content{
@@ -11,13 +11,20 @@
 }
 
 .side {
-  flex:1;
+  width: 15%;
   height: 100%;
 }
 
 .body{
-  flex:5;
+  width: 98.5%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+}
+
+.body-content{
+    overflow:scroll;
+    height: 100%;
 }

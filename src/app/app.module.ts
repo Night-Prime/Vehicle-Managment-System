@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LottieModule } from 'ngx-lottie';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgChartsModule } from 'ng2-charts';
+import { DataTablesModule } from "angular-datatables";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -35,6 +36,7 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
     HttpClientModule,
     FontAwesomeModule,
     NgChartsModule,
+    DataTablesModule,
     LottieModule,
     ReactiveFormsModule,
     AppRoutingModule
