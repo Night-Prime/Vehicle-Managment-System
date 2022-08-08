@@ -1,6 +1,6 @@
 .layout{
   width: 100vw;
-  height: 1480px;
+  height:max-content;
 }
 
 .content{

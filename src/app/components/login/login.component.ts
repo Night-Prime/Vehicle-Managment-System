@@ -10,10 +10,12 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
 })
 export class LoginComponent implements OnInit {
   constructor(private service:AuthServiceService, private router:Router) {
-  //  this.service.logOut();
+   this.service.logOut();
    }
 
-  responseData:any
+  responseData:any;
+  email = '';
+  password= '';
 
   // Built a Reactive Form for Login
   Login = new FormGroup({
@@ -27,7 +29,7 @@ export class LoginComponent implements OnInit {
       this.service.userLogin(this.Login.value).subscribe(results =>{
         if(results != null){
           this.responseData = results;
-          localStorage.setItem('token', this.responseData.payload.jwtToken);
+          localStorage.setItem('token', this.responseData.payload.token);
           localStorage.setItem('email', this.responseData.payload.email);
           localStorage.setItem('password', this.responseData.payload.password);
           this.router.navigate(['/admin'])

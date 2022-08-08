@@ -1,0 +1,27 @@
+section{
+  height: 100%;
+  width: 90vw;
+  margin-left: .1rem;
+  color:rgb(255, 165, 0);
+  background-image: radial-gradient(rgb(0, 0, 0), rgb(9, 14, 29));
+}
+
+main{
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  flex-direction:column;
+  overflow-y: scroll;
+}
+
+header {
+  border-bottom: 2px solid rgb(240, 238, 238);
+}
+
+header h1{
+  margin-left: 1rem;
+  /* margin-top: .5rem; */
+  padding-top: 1rem;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
