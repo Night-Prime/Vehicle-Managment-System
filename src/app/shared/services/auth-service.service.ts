@@ -27,7 +27,7 @@ export class AuthServiceService {
   userLogin(user: any) {
     return this.http.post(this.LOGIN_URL, user)
   }
-  
+
   //logging out
   logOut() {
     localStorage.clear();
@@ -42,5 +42,15 @@ export class AuthServiceService {
   // clients
   GetAllClient() {
     return this.http.get(`${this.BASE_URL + this.endpoint.client}`)
+  }
+
+  // vehicles
+  GetAllVehicle() {
+    return this.http.get(`${this.BASE_URL + this.endpoint.vehicle}`)
+  }
+
+  //invoices
+  GetAllInvoice() {
+    return this.http.get(`${this.BASE_URL + this.endpoint.invoice}`)
   }
 }

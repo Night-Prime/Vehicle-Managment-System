@@ -1,7 +1,7 @@
 section{
-  height: 100%;
+  height:100vh;
   width: 90vw;
-  margin-left: .1rem;
+  margin-left: .5rem;
   color:rgb(255, 165, 0);
   background-image: radial-gradient(rgb(0, 0, 0), rgb(9, 14, 29));
 }
@@ -11,12 +11,14 @@ main{
   display: flex;
   padding: 10px;
   flex-direction:column;
-  overflow-y: scroll;
+  margin-left: 1rem;
+  color:rgb(247, 190, 85);
 }
 
 header {
   border-bottom: 2px solid rgb(240, 238, 238);
 }
+
 
 header h1{
   margin-left: 1rem;
@@ -25,3 +27,40 @@ header h1{
   font-size: 24px;
   margin-bottom: 12px;
 }
+
+.table-section {
+  margin: 2rem;
+  width: 100%;
+}
+
+table {
+  width: 80%;
+  height: 100%;
+  margin-bottom: 2rem;
+  background-color: rgb(14, 14, 92);
+  color:rgb(247, 190, 85);
+  border: 2px solid rgb(14, 14, 92);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+th, tr{
+  border-bottom: 2px solid white;
+  /* border-right: 2px solid white; */
+  text-align: left;
+}
+
+tr{
+  padding: 5rem;
+  padding-left: .5rem;
+  cursor:pointer;
+}
+
+tr:hover {
+  background-color: rgb(30, 30, 104);
+}
+
+td{
+  padding: 1rem;
+}
+

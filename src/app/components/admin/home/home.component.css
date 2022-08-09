@@ -25,6 +25,5 @@
 }
 
 .body-content{
-    overflow:scroll;
-    height: 100%;
+    height:max-content;
 }

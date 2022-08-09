@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgChartsModule } from 'ng2-charts';
+import {DataTablesModule} from 'angular-datatables';
 
 
 import { ClientComponent } from './client/client.component';
@@ -33,6 +34,7 @@ import { ChartsComponent } from './shared/charts/charts.component';
     AdminRoutingModule,
     FontAwesomeModule,
     FormsModule,
+    DataTablesModule,
     NgChartsModule,
     ReactiveFormsModule
   ]
