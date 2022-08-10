@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-staff',
@@ -7,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StaffComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:AuthServiceService) { }
+
+  staffList:any;
+  dtOptions: DataTables.Settings = {};
+  dtTrigger:Subject<any> = new Subject<any>();
 
   ngOnInit(): void {
+    this.onGetStaffs();
   }
+  onGetStaffs(): void {
+    this.service.GetAllStaffs().subscribe(
+      (response: any)=> {
+        console.table(response);
+        this.staffList = response.payload;
+        this.dtTrigger.next(response.payload);
+      },
+      (error: any) => console.log(error),
+      () => console.log('Gotten all Staffs'),
+    );
+  }
+
+  ngOnDestroy():void {
+    this.dtTrigger.unsubscribe();
+  }
+
 
 }

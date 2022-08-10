@@ -1,6 +1,7 @@
 section{
   height: 100%;
   width: 90vw;
+  /* overflow-y: scroll; */
   margin-left: .1rem;
   color:rgb(255, 165, 0);
   background-image: radial-gradient(rgb(0, 0, 0), rgb(9, 14, 29));
@@ -38,16 +39,18 @@ header h1{
 
 .chart{
   background: transparent;
-  width: 95%;
+  width: 75%;
   height:max-content;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
+  margin: 2rem;
+  margin-left: 5rem;
+  z-index: 1;
+
 }
 
 .tables {
   width: 85%;
   height:max-content ;
-  margin-top: 8rem;
+  margin-top: 10rem;
   margin-left:2rem;
   padding: 1.5rem;
   margin-bottom: -5rem;

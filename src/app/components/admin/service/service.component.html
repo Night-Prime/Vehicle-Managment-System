@@ -1,1 +1,30 @@
-<p>service works!</p>
+<section>
+  <main>
+    <header>
+      <h1>
+        Service Offered
+      </h1>
+    </header>
+    <!-- Table section -->
+    <div class="table-section">
+      <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Service</th>
+            <th>Creation Date</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let service of serviceList">
+            <td>{{ service.id}}</td>
+            <td>{{ service.name}}</td>
+            <td>{{ service.createdOn | date}}</td>
+            <td>{{ service.isActive}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</section>

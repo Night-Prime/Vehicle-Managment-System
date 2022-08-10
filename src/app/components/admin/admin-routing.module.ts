@@ -4,7 +4,7 @@ import { ServiceComponent } from './service/service.component';
 import { InvoiceComponent } from './invoice/invoice.component';
 import { HomeComponent } from './home/home.component';
 import { Component, NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { ClientComponent } from './client/client.component';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 import { AuthGuard } from 'src/app/shared/guards/auth.guard';

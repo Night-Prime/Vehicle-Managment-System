@@ -1,1 +1,31 @@
-<p>staff works!</p>
+
+<section>
+  <main>
+    <header>
+      <h1>
+        Staffs Information
+      </h1>
+    </header>
+    <!-- Table section -->
+    <div class="table-section">
+      <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>E-mail Address</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of staffList">
+            <td>{{ user.id}}</td>
+            <td>{{ user.name}}</td>
+            <td>{{ user.email}}</td>
+            <td>{{ user.role}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</section>

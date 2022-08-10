@@ -41,16 +41,26 @@ export class AuthServiceService {
 
   // clients
   GetAllClient() {
-    return this.http.get(`${this.BASE_URL + this.endpoint.client}`)
+    return this.http.get(`${this.BASE_URL + this.endpoint.client}`);
   }
 
   // vehicles
   GetAllVehicle() {
-    return this.http.get(`${this.BASE_URL + this.endpoint.vehicle}`)
+    return this.http.get(`${this.BASE_URL + this.endpoint.vehicle}`);
   }
 
   //invoices
   GetAllInvoice() {
-    return this.http.get(`${this.BASE_URL + this.endpoint.invoice}`)
+    return this.http.get(`${this.BASE_URL + this.endpoint.invoice}`);
+  }
+
+  // staffs
+  GetAllStaffs() {
+    return this.http.get(`${this.BASE_URL + this.endpoint.staff}`);
+  }
+
+  // services
+  GetAllService() {
+    return this.http.get(`${this.BASE_URL + this.endpoint.service}`);
   }
 }
