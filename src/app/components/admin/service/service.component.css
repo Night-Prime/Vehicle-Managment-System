@@ -16,6 +16,16 @@ main{
   color:rgb(247, 190, 85);
 }
 
+main button{
+  margin-top: 1rem;
+  width: 10%;
+  border: 2px solid orange;
+  border-radius: 5px;
+  padding: 8px;
+  background-color: orange;
+  color: white;
+}
+
 header {
   border-bottom: 2px solid rgb(240, 238, 238);
 }

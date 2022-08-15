@@ -1,0 +1,42 @@
+<main>
+
+  <form [formGroup]="AddNewStaff" (ngSubmit)="addStaff()">
+    <input type="email"
+            id="email"
+            [(ngModel)]="email"
+            formControlName="email"
+            placeholder="Enter Email"
+            autocomplete="off"
+            required><br>
+    <input type="text"
+            placeholder="Enter Name"
+            id="username"
+            [(ngModel)]="name"
+            formControlName="name"
+            autocomplete="off"
+            required><br>
+    <input type="password"
+            placeholder="Enter Password"
+            id="password"
+            [(ngModel)]="password"
+            formControlName="password"
+            autocomplete="off"
+            required><br>
+    <label for="role">Select Role</label>
+    <select name="role"
+            id="role"
+            [(ngModel)]="role"
+            formControlName="role"
+            required>
+        <option value="admin" selected>Admin</option>
+        <option value="approver">Approver</option>
+        <option value="clerk">Clerk</option>
+    </select>
+    <button style="width: 50%; margin:auto; display: block"
+            [disabled]="!AddNewStaff"
+            type="submit">Add New Staff
+    </button>
+
+</form>
+
+</main>

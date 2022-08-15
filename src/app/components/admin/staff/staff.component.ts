@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { Subject } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { StaffModalComponent } from './staff-modal/staff-modal.component';
 
 @Component({
   selector: 'app-staff',
@@ -9,7 +11,12 @@ import { Subject } from 'rxjs';
 })
 export class StaffComponent implements OnInit {
 
-  constructor(private service:AuthServiceService) { }
+  constructor(private service:AuthServiceService, private modal:MatDialog) { }
+// Modal Function
+openModal() {
+  this.modal.open(StaffModalComponent);
+}
+
 
   staffList:any;
   dtOptions: DataTables.Settings = {};

@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { Subject } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { InvoiceModalComponent } from './invoice-modal/invoice-modal.component';
+
 @Component({
   selector: 'app-invoice',
   templateUrl: './invoice.component.html',
@@ -8,7 +11,13 @@ import { Subject } from 'rxjs';
 })
 export class InvoiceComponent implements OnInit {
 
-  constructor(private service: AuthServiceService) { }
+  constructor(private service: AuthServiceService, private modal:MatDialog) { }
+  // Modal Function
+  openModal() {
+    this.modal.open(InvoiceModalComponent)
+  }
+
+
   invoiceList:any;
   dtOptions: DataTables.Settings = {};
   dtTrigger:Subject<any> = new Subject<any>();

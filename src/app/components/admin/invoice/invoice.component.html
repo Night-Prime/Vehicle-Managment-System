@@ -6,6 +6,9 @@
         Invoices
       </h1>
     </header>
+    <button (click)="openModal()">
+      Add Invoice
+    </button>
     <!-- Table section -->
     <div class="table-section">
       <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table">

@@ -19,6 +19,9 @@ import { ChartsComponent } from './shared/charts/charts.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
 import { ModalComponent } from './client/modal/modal.component';
 import { VehicleModalComponent } from './vehicle/vehicle-modal/vehicle-modal.component';
+import { InvoiceModalComponent } from './invoice/invoice-modal/invoice-modal.component';
+import { StaffModalComponent } from './staff/staff-modal/staff-modal.component';
+import { ServiceModalComponent } from './service/service-modal/service-modal.component';
 
 
 
@@ -34,7 +37,10 @@ import { VehicleModalComponent } from './vehicle/vehicle-modal/vehicle-modal.com
     ChartsComponent,
     SpinnerComponent,
     ModalComponent,
-    VehicleModalComponent
+    VehicleModalComponent,
+    InvoiceModalComponent,
+    StaffModalComponent,
+    ServiceModalComponent
   ],
   imports: [
     CommonModule,

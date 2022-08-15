@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { Subject } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ServiceModalComponent } from './service-modal/service-modal.component';
 
 @Component({
   selector: 'app-service',
@@ -9,7 +11,11 @@ import { Subject } from 'rxjs';
 })
 export class ServiceComponent implements OnInit {
 
-  constructor(private service: AuthServiceService) { }
+  constructor(private service: AuthServiceService, private modal:MatDialog) { }
+  // Modal Function
+  openModal() {
+    this.modal.open(ServiceModalComponent);
+  }
 
   serviceList:any;
   dtOptions: DataTables.Settings = {};

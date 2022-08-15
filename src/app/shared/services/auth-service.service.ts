@@ -59,14 +59,24 @@ export class AuthServiceService {
   GetAllInvoice() {
     return this.http.get(`${this.BASE_URL + this.endpoint.invoice}`);
   }
+  AddInvoice(cred:any){
+    return this.http.post(`${this.BASE_URL + this.endpoint.invoice}`, cred);
+  }
 
   // staffs
   GetAllStaffs() {
     return this.http.get(`${this.BASE_URL + this.endpoint.staff}`);
+  }
+  AddStaff(cred:any){
+    return this.http.post(`${this.BASE_URL + this.endpoint.staff}`, cred);
   }
 
   // services
   GetAllService() {
     return this.http.get(`${this.BASE_URL + this.endpoint.service}`);
   }
+  AddService(cred:any){
+    return this.http.post(`${this.BASE_URL + this.endpoint.service}`, cred);
+  }
+
 }
