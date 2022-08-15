@@ -2,7 +2,7 @@ section{
   height: 100%;
   width: 90vw;
   /* overflow-y: scroll; */
-  margin-left: .1rem;
+  margin-left: .5rem;
   color:rgb(255, 165, 0);
   background-image: radial-gradient(rgb(0, 0, 0), rgb(9, 14, 29));
 }
@@ -18,13 +18,16 @@ main{
 header {
   border-bottom: 2px solid rgb(240, 238, 238);
 }
+.head-text{
+  margin-left: 2rem;
+}
 
-header h1{
+header p{
   margin-left: 1rem;
   /* margin-top: .5rem; */
   padding-top: 1rem;
-  font-size: 24px;
   margin-bottom: 12px;
+  font-size: 16px;
 }
 
 .card{

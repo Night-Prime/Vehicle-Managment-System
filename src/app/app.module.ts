@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { LottieModule } from 'ngx-lottie';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgChartsModule } from 'ng2-charts';
 import { DataTablesModule } from "angular-datatables";
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,9 @@ import { SidebarComponent } from './components/admin/sidebar/sidebar.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { SpinnerComponent } from './animations/spinner/spinner.component';
+import { LoadingService } from './shared/services/loading.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -28,7 +31,8 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
     NavbarComponent,
     HomeComponent,
     SidebarComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -37,13 +41,18 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
     FontAwesomeModule,
     NgChartsModule,
     DataTablesModule,
-    LottieModule,
+    MatDialogModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule
   ],
   providers: [AuthGuard,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
+    multi: true
+  },{
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoadingService,
     multi: true
   }],
   bootstrap: [AppComponent]

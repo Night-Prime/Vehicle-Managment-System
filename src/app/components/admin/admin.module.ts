@@ -5,6 +5,7 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgChartsModule } from 'ng2-charts';
 import {DataTablesModule} from 'angular-datatables';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 import { ClientComponent } from './client/client.component';
@@ -15,6 +16,9 @@ import { BoardComponent } from './board/board.component';
 import { StaffComponent } from './staff/staff.component';
 import { CardsComponent } from './shared/cards/cards.component';
 import { ChartsComponent } from './shared/charts/charts.component';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { ModalComponent } from './client/modal/modal.component';
+import { VehicleModalComponent } from './vehicle/vehicle-modal/vehicle-modal.component';
 
 
 
@@ -27,12 +31,16 @@ import { ChartsComponent } from './shared/charts/charts.component';
     BoardComponent,
     StaffComponent,
     CardsComponent,
-    ChartsComponent
+    ChartsComponent,
+    SpinnerComponent,
+    ModalComponent,
+    VehicleModalComponent
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FontAwesomeModule,
+    MatDialogModule,
     FormsModule,
     DataTablesModule,
     NgChartsModule,

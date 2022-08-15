@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Subject } from 'rxjs';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
+import { VehicleModalComponent } from './vehicle-modal/vehicle-modal.component';
 @Component({
   selector: 'app-vehicle',
   templateUrl: './vehicle.component.html',
@@ -8,11 +10,16 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
 })
 export class VehicleComponent implements OnInit {
 
-  constructor(private service: AuthServiceService) { }
+  constructor(private service: AuthServiceService, private  modal:MatDialog ) { }
 
   ngOnInit(): void {
     this.onGetVehicle();[]
   }
+
+// Modal Function
+    openModal() {
+      this.modal.open(VehicleModalComponent);
+    }
 
   vehicleList:any;
   Empty!:null;

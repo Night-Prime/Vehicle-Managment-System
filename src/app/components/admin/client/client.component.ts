@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { Subject } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal.component';
 
 @Component({
   selector: 'app-client',
@@ -9,7 +11,17 @@ import { Subject } from 'rxjs';
 })
 export class ClientComponent implements OnInit {
 
-  constructor(private service:AuthServiceService) { }
+  constructor(private service:AuthServiceService, private modal:MatDialog) { }
+  // Modal Function
+  openModal() {
+    this.modal.open(ModalComponent);
+  }
+
+  closeModal(){
+    this.modal.closeAll();
+  }
+
+
   ClientList:any;
 
   ngOnInit(): void {

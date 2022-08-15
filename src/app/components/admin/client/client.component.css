@@ -16,6 +16,14 @@ main{
   color:rgb(247, 190, 85);
 }
 
+main button{
+  margin-top: 1rem;
+  width: 10%;
+  border: 2px solid orange;
+  border-radius: 5px;
+  padding: 8px;
+}
+
 header {
   border-bottom: 2px solid rgb(240, 238, 238);
 }
@@ -31,13 +39,14 @@ header h1{
 
 .table-section {
   margin: 2rem;
-  width: 100%;
+  width: 90%;
 }
 
 table {
-  width: 80%;
+  width: 85%;
   height: 100%;
   margin-bottom: 2rem;
+  margin-top: 2rem;
   background-color: rgb(14, 14, 92);
   color:rgb(247, 190, 85);
   border: 2px solid rgb(14, 14, 92);
@@ -63,5 +72,13 @@ tr:hover {
 
 td{
   padding: 1rem;
+}
+
+.Modal {
+  width: 5%;
+  padding: 2px;
+  background-color: orange;
+  color:white;
+  cursor: pointer;
 }
 

@@ -43,10 +43,16 @@ export class AuthServiceService {
   GetAllClient() {
     return this.http.get(`${this.BASE_URL + this.endpoint.client}`);
   }
+  AddClient(cred: any) {
+    return this.http.post(`${this.BASE_URL + this.endpoint.client}`, cred);
+  }
 
   // vehicles
   GetAllVehicle() {
     return this.http.get(`${this.BASE_URL + this.endpoint.vehicle}`);
+  }
+  AddVehicle(cred: any) {
+    return this.http.post(`${this.BASE_URL + this.endpoint.vehicle}`, cred);
   }
 
   //invoices

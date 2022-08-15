@@ -5,6 +5,9 @@
         Customer Information
       </h1>
     </header>
+    <button (click)="openModal()" class="Modal">
+      Register Client
+    </button>
     <!-- Table section -->
     <div class="table-section">
       <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table">
@@ -28,4 +31,6 @@
     </div>
   </main>
 </section>
+
+<app-spinner></app-spinner>
 
