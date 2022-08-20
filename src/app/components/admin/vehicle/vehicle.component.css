@@ -75,3 +75,11 @@ td{
   padding: 1rem;
 }
 
+td button{
+  width: 50%;
+  background-color:red;
+  color:white;
+  border: 1 solid red;
+  cursor: pointer;
+
+}

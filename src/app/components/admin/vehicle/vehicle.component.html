@@ -26,6 +26,11 @@
             <td>{{vehicle.vehicleName}}</td>
             <td>{{vehicle.chassis}}</td>
             <td>{{vehicle.model}}</td>
+            <td>
+              <button (click)="onRemove(vehicle.id)">
+                <fa-icon [icon]="fabin"></fa-icon>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

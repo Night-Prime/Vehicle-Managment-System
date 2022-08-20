@@ -15,7 +15,7 @@ export class VehicleModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  vehicleName = '';model = '';chassis = '';id = '';
+  vehicleName = '';model = '';chassis = '';id = '';clientId = '';
 
   // Vehicle forms
   AddNewVehicle = new FormGroup({
@@ -26,7 +26,7 @@ export class VehicleModalComponent implements OnInit {
   })
 
   addVehicle(){
-    this.service.AddClient(this.AddNewVehicle.value).subscribe(result => {
+    this.service.AddVehicle(this.AddNewVehicle.value).subscribe(result => {
       console.log(result),
       this.modal.closeAll()
     })

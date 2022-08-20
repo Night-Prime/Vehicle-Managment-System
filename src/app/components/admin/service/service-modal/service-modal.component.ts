@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
 })
 export class ServiceModalComponent implements OnInit {
 
-  constructor(private service: AuthServiceService) { }
+  constructor(private service: AuthServiceService, private modal:MatDialog) { }
 
 
   ngOnInit(): void {
@@ -22,7 +23,8 @@ export class ServiceModalComponent implements OnInit {
 
   addService(){
     this.service.AddService(this.AddNewService.value).subscribe(result => {
-      console.log(result);
+      console.log(result),
+      this.modal.closeAll();
   })
 
   }

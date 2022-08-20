@@ -26,6 +26,11 @@
             <td>{{ user.name}}</td>
             <td>{{ user.email}}</td>
             <td>{{ user.role}}</td>
+            <td>
+              <button (click)="onRemove(user.id)">
+                <fa-icon [icon]="fabin"></fa-icon>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

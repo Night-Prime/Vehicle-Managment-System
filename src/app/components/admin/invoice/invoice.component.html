@@ -30,6 +30,11 @@
               </tr>
             </td>
             <td>{{quote.totalAmount | currency:'USD'}}</td>
+            <td>
+              <button (click)="onRemove(quote.id)">
+                <fa-icon [icon]="fabin"></fa-icon>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

@@ -25,6 +25,11 @@
             <td>{{ service.name}}</td>
             <td>{{ service.createdOn | date}}</td>
             <td>{{ service.isActive}}</td>
+            <td>
+              <button (click)="onRemove(service.id)">
+                <fa-icon [icon]="fabin"></fa-icon>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

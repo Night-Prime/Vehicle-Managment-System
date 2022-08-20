@@ -22,6 +22,7 @@ import { VehicleModalComponent } from './vehicle/vehicle-modal/vehicle-modal.com
 import { InvoiceModalComponent } from './invoice/invoice-modal/invoice-modal.component';
 import { StaffModalComponent } from './staff/staff-modal/staff-modal.component';
 import { ServiceModalComponent } from './service/service-modal/service-modal.component';
+import { ClientDetailsComponent } from './client/client-details/client-details.component';
 
 
 
@@ -40,7 +41,8 @@ import { ServiceModalComponent } from './service/service-modal/service-modal.com
     VehicleModalComponent,
     InvoiceModalComponent,
     StaffModalComponent,
-    ServiceModalComponent
+    ServiceModalComponent,
+    ClientDetailsComponent
   ],
   imports: [
     CommonModule,

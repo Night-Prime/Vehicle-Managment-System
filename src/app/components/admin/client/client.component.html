@@ -20,17 +20,24 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let client of ClientList">
+          <tr (click)="onSelect(client)" *ngFor="let client of ClientList; let i = index;">
             <td>{{client.id}}</td>
             <td>{{client.name}}</td>
             <td>{{client.email}}</td>
             <td>{{client.telephone}}</td>
+            <td>
+              <button (click)="onRemove(client.id)">
+                <fa-icon [icon]="fabin"></fa-icon>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
   </main>
 </section>
+<router-outlet></router-outlet>
+
 
 <app-spinner></app-spinner>
 

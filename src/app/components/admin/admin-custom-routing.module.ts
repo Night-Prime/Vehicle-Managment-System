@@ -5,6 +5,7 @@ import { InvoiceComponent } from './invoice/invoice.component';
 import { ServiceComponent } from './service/service.component';
 import { VehicleComponent } from './vehicle/vehicle.component';
 import { StaffComponent } from './staff/staff.component';
+import { ClientComponent } from './client/client.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     component: HomeComponent,
     children: [
       {path: 'home', component:HomeComponent},
+      {path: 'client', component:ClientComponent},
       {path: 'invoice', component:InvoiceComponent},
       {path: 'service', component:ServiceComponent},
       {path: 'vehicle', component:VehicleComponent},

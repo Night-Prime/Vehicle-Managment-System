@@ -18,37 +18,46 @@
         autocomplete="off"
         required
       /><br />
+      
+      <div [formGroup]="AddNewInvoice">
+        <label for="items">Items :</label>
+          <ng-container formArrayName="items">
+            <div *ngFor="let itemsForm of items.controls; let i = index">
+                <input type="text"
+                  id="text"
+                  [formControlName]="i + 1"
+                  placeholder="Item Ordered"
+                  required /><br>
 
-      <div formGroupName="items">
-        <h3>Item</h3>
-        <input type="text"
-        id="text"
-        [formControlName]="item"
-        placeholder="Item Ordered"
-        required><br>
+                <input type="number"
+                  placeholder="Enter Unit"
+                  id="unit"
+                  [formControlName]="i + 1"
+                  autocomplete="off"
+                  required /><br>
 
-<input type="number"
-        placeholder="Enter Unit"
-        id="unit"
-        [formControlName]="unit"
-        autocomplete="off"
-        required><br>
+                <input type="number"
+                  placeholder="Enter Rate"
+                  id="rate"
+                  [formControlName]="i + 1"
+                  autocomplete="off"
+                  required /><br>
 
-<input type="number"
-        placeholder="Enter Rate"
-        id="rate"
-        [formControlName]="rate"
-        autocomplete="off"
-        required><br>
+                <input type="number"
+                  placeholder="Enter Amount"
+                  id="amount"
+                  [formControlName]="i +1"
+                  autocomplete="off"
+                  required /><br>
+            </div>
+          </ng-container>
 
-    <input type="number"
-        placeholder="Enter Amount"
-        id="amount"
-        [formControlName]="amount"
-        autocomplete="off"
-        required><br>
-    </div>
-
+          <button
+          style=" margin: auto; display: block; margin-top:1rem"
+          (click)="addItems()" type="submit">
+          Add
+      </button>
+      </div>
     <button
       style="width: 50%; margin: auto; display: block; margin-top:1rem"
       [disabled]="!AddNewInvoice"

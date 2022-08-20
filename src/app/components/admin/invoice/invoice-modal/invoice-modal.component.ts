@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder, FormArray } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 
@@ -11,22 +11,39 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
 export class InvoiceModalComponent implements OnInit {
   item=''; unit=''; rate=''; amount=''; clientId=''; vehicleId='';
 
-  constructor(private modal:MatDialog, private service:AuthServiceService) { }
+  constructor(private modal:MatDialog, private service:AuthServiceService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
 
 
-  AddNewInvoice = new FormGroup({
+
+  // Generating a Dynamic Form Array
+
+  AddNewInvoice = this.fb.group({
     clientId: new FormControl(" ", Validators.required),
     vehicleId: new FormControl(" ", Validators.required),
-    items: new FormGroup({
-      item: new FormControl(" "),
-      unit: new FormControl(" "),
-      rate: new FormControl(" "),
-      amount: new FormControl(" ")
-    }, Validators.required)
+    items: this.fb.array([])
   });
+
+  get items() {
+    return this.AddNewInvoice.controls["items"] as FormArray
+  }
+
+  addItems() {
+    const itemsForm = this.fb.group({
+      item: ['', Validators.required],
+      unit: ['', Validators.required],
+      rate: ['', Validators.required],
+      amount: ['', Validators.required]
+    });
+
+    this.items.push(itemsForm);
+  }
+
+  deleteItems(i:number) {
+    this.items.removeAt(i);
+  }
 
   addInvoice() {
     this.service.AddInvoice(this.AddNewInvoice.value).subscribe(result => {
@@ -36,3 +53,4 @@ export class InvoiceModalComponent implements OnInit {
   }
 
 }
+

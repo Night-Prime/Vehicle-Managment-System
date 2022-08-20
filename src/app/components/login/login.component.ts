@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private service:AuthServiceService, private router:Router) {
+  constructor(private service:AuthServiceService, private router:Router, private toast: NgToastService) {
    this.service.logOut();
    }
 
@@ -29,13 +30,15 @@ export class LoginComponent implements OnInit {
       this.service.userLogin(this.Login.value).subscribe(results =>{
         if(results != null){
           this.responseData = results;
+          this.toast.success({detail: 'Sucess!',summary: 'You are logged in sucessfully!',duration:5000});
           localStorage.setItem('token', this.responseData.payload.token);
           localStorage.setItem('email', this.responseData.payload.email);
           localStorage.setItem('password', this.responseData.payload.password);
           this.router.navigate(['/admin'])
         }
       }, (error) => {
-        console.log('Error was found at login')
+        console.log('Error was found at login');
+        this.toast.error({detail: 'Invalid credentials', summary: 'The token is Invalid!', duration:5000});
       })
     }
   }

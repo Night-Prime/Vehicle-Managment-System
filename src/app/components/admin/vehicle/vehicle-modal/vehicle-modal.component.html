@@ -2,6 +2,15 @@
 
   <form [formGroup]="AddNewVehicle"(ngSubmit)="addVehicle()">
     <input
+            type="text"
+            placeholder="Enter Client Id"
+            id="cientId"
+            [(ngModel)]="clientId"
+            formControlName="clientId"
+            autocomplete="off"
+            required
+          /><br />
+    <input
           type="text"
           placeholder="Enter Vehicle Name"
           id="vehicleName"
@@ -10,7 +19,7 @@
           autocomplete="off"
           required
         /><br />
-        <input
+    <input
           type="text"
           placeholder="Enter Model"
           id="model"
@@ -19,9 +28,9 @@
           autocomplete="off"
           required
         /><br />
-        <input
+    <input
           type="text"
-          placeholder="Enter Phone Chassis Number"
+          placeholder="Enter Chassis Number"
           id="chassis"
           [(ngModel)]="chassis"
           formControlName="chassis"
@@ -30,9 +39,7 @@
         /><br />
         <button
           style="width: 50%; margin: auto; display: block; margin-top:1rem"
-          [disabled]="
-            id === '' || vehicleName === '' || model === '' || chassis === ''
-          "
+          [disabled]="!AddNewVehicle"
           type="submit"
         >
           Register Vehicle

@@ -28,6 +28,7 @@
     "datatables.net-dt": "^1.11.3",
     "jquery": "^3.6.0",
     "lottie-web": "^5.9.6",
+    "ng-angular-popup": "^0.1.2",
     "ng2-charts": "^4.0.0",
     "ngx-lottie": "^8.2.0",
     "rxjs": "~7.5.0",

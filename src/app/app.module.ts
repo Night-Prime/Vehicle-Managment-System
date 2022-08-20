@@ -5,6 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgChartsModule } from 'ng2-charts';
 import { DataTablesModule } from "angular-datatables";
 import {MatDialogModule} from '@angular/material/dialog';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -43,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DataTablesModule,
     MatDialogModule,
     ReactiveFormsModule,
+    NgToastModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],

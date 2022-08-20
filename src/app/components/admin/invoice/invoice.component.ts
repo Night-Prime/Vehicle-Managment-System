@@ -3,6 +3,7 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
 import { Subject } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { InvoiceModalComponent } from './invoice-modal/invoice-modal.component';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-invoice',
@@ -39,6 +40,22 @@ export class InvoiceComponent implements OnInit {
       () => console.log('Gotten all Invoices'),
     );
   }
+
+      // Deleting a data 
+
+      onRemove(index: number){
+        this.service.DeleteInvoice(index).subscribe(
+          (result) => {
+          console.log(result)
+          window.location.reload()
+          },
+          (err:any) => console.log(err),
+          () => console.log('Selected ID deleted!')
+        );
+      }
+    
+      fabin = faTrash;
+    
 
   ngOnDestroy():void {
     this.dtTrigger.unsubscribe();
