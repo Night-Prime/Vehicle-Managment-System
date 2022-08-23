@@ -21,8 +21,9 @@
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
     "@fortawesome/angular-fontawesome": "^0.11.1",
+    "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
-    "angular-datatables": "^14.0.0",
+    "angular-datatables": "^13.1.0",
     "chart.js": "^3.8.2",
     "datatables.net": "^1.11.3",
     "datatables.net-dt": "^1.11.3",
@@ -33,6 +34,7 @@
     "ngx-lottie": "^8.2.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
+    "webpack": "^5.74.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {

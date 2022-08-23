@@ -31,15 +31,15 @@ export class InvoiceModalComponent implements OnInit {
   }
 
   addItems() {
-    const itemsForm = this.fb.group({
-      item: ['', Validators.required],
-      unit: ['', Validators.required],
-      rate: ['', Validators.required],
-      amount: ['', Validators.required]
-    });
-
-    this.items.push(itemsForm);
+    console.log(this.itemsForm)
+    this.items.push(this.itemsForm);
   }
+  itemsForm = this.fb.group({
+    item: ['', Validators.required],
+    unit: ['', Validators.required],
+    rate: ['', Validators.required],
+    amount: ['', Validators.required]
+  });
 
   deleteItems(i:number) {
     this.items.removeAt(i);

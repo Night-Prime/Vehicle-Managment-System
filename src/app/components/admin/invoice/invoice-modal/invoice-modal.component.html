@@ -18,35 +18,35 @@
         autocomplete="off"
         required
       /><br />
-      
-      <div [formGroup]="AddNewInvoice">
+
+      <div [formGroup]="itemsForm">
         <label for="items">Items :</label>
           <ng-container formArrayName="items">
             <div *ngFor="let itemsForm of items.controls; let i = index">
                 <input type="text"
                   id="text"
-                  [formControlName]="i + 1"
+                  [formControlName]="item[i]"
                   placeholder="Item Ordered"
                   required /><br>
 
                 <input type="number"
                   placeholder="Enter Unit"
                   id="unit"
-                  [formControlName]="i + 1"
+                  [formControlName]="unit[i]"
                   autocomplete="off"
                   required /><br>
 
                 <input type="number"
                   placeholder="Enter Rate"
                   id="rate"
-                  [formControlName]="i + 1"
+                  [formControlName]="rate[i]"
                   autocomplete="off"
                   required /><br>
 
                 <input type="number"
                   placeholder="Enter Amount"
                   id="amount"
-                  [formControlName]="i +1"
+                  [formControlName]="amount[i]"
                   autocomplete="off"
                   required /><br>
             </div>
@@ -54,7 +54,7 @@
 
           <button
           style=" margin: auto; display: block; margin-top:1rem"
-          (click)="addItems()" type="submit">
+          (click)="addItems()">
           Add
       </button>
       </div>
