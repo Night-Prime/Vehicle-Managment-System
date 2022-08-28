@@ -74,7 +74,7 @@ td{
   padding: 1rem;
 }
 
-.Modal {
+.modal {
   width: 5%;
   padding: 2px;
   background-color: orange;
@@ -83,10 +83,11 @@ td{
 }
 
 td button{
-  width: 50%;
-  background-color:red;
+  width: 35%;
+  background-color:transparent;
+  border: 2px solid transparent;
+  padding: 2px;
   color:white;
-  border: 1 solid red;
   cursor: pointer;
 
 }
