@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 
 @Component({
@@ -9,23 +9,34 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
   styleUrls: ['./service-modal.component.css']
 })
 export class ServiceModalComponent implements OnInit {
+  AddNewService!:FormGroup;
+  constructor(private service: AuthServiceService,
+    private modal:MatDialogRef<ServiceModalComponent>,
+    private fb:FormBuilder,
+    @Inject(MAT_DIALOG_DATA)public editData: any
+    ) { }
 
-  constructor(private service: AuthServiceService, private modal:MatDialog) { }
+    name = '';
 
 
   ngOnInit(): void {
-  }
-  name = '';
+    this.AddNewService = this.fb.group({
+      name: ['', Validators.required]
+    })
 
-  AddNewService = new FormGroup({
-    name: new FormControl(" ", Validators.required)
-  })
+    if(this.editData){
+      this.AddNewService.controls['name'].setValue(this.editData.name)
+    }
+
+    console.log(this.editData);
+  }
 
   addService(){
     this.service.AddService(this.AddNewService.value).subscribe(result => {
       console.log(result),
-      this.modal.closeAll();
+      this.modal.close();
   })
+
 
   }
 }

@@ -17,6 +17,7 @@
             <th>Service</th>
             <th>Creation Date</th>
             <th>Status</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -26,6 +27,9 @@
             <td>{{ service.createdOn | date}}</td>
             <td>{{ service.isActive}}</td>
             <td>
+              <button (click)="onGetServiceByID(service)">
+                <fa-icon [icon]="fawrite"></fa-icon>
+              </button>
               <button (click)="onRemove(service.id)">
                 <fa-icon [icon]="fabin"></fa-icon>
               </button>

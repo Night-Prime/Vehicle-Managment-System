@@ -6,7 +6,6 @@
     <form [formGroup]="AddNewClient" (ngSubmit)="addClient()">
       <input type="email"
                 id="email"
-                [(ngModel)]="email"
                 formControlName="email"
                 placeholder="Enter Email"
                 autocomplete="off"
@@ -14,19 +13,17 @@
         <input type="text"
                 placeholder="Enter Name"
                 id="username"
-                [(ngModel)]="name"
                 formControlName="name"
                 autocomplete="off"
                 required><br>
         <input type="text"
                 placeholder="Enter Phone Number"
                 id="phone"
-                [(ngModel)]="telephone"
                 formControlName="telephone"
                 autocomplete="off"
                 required><br>
         <button style="width: 50%; margin:auto; display: block; margin-top: 1rem"
-                [disabled]="email === '' || telephone === '' ||  name === ''"
+                [disabled]="!AddNewClient"
                 type="submit">Register Client
         </button>
     </form>

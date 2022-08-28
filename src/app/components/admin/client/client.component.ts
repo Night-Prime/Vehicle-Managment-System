@@ -47,7 +47,7 @@ export class ClientComponent implements OnInit,AfterViewInit {
     );
   }
 
-    // Edit Product
+    // Edit data
     onGetClientByID(client : any) {
       this.modal.open(ModalComponent, {
         width: '50%',

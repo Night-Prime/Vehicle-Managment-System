@@ -3,7 +3,7 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
 import { Subject } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ServiceModalComponent } from './service-modal/service-modal.component';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-service',
@@ -39,8 +39,18 @@ export class ServiceComponent implements OnInit {
     );
   }
 
-  
-    // Deleting a data 
+  // Edit data
+  onGetServiceByID(service: any) {
+    this.modal.open(ServiceModalComponent, {
+      width: '50%',
+      data: service,
+    })
+  }
+
+  fawrite = faPen;
+
+
+  // Deleting a data
 
     onRemove(index: number){
       this.service.DeleteService(index).subscribe(
