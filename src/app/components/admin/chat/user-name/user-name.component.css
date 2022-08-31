@@ -1,0 +1,22 @@
+div{
+  margin-top: 6px;
+  width: 99%;
+  height: 4vh;
+  display: flex;
+  padding: 5px;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: transparent;
+}
+
+div button {
+  /* margin-left: 5rem; */
+  background: orange;
+  color:white;
+  padding: 5px;
+  border: none;
+  cursor:pointer;
+}
+div input {
+  width: 90%;
+}

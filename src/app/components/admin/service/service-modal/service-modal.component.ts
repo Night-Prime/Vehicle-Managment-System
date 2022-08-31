@@ -9,7 +9,8 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
   styleUrls: ['./service-modal.component.css']
 })
 export class ServiceModalComponent implements OnInit {
-  AddNewService!:FormGroup;
+  AddNewService!: FormGroup;
+
   constructor(private service: AuthServiceService,
     private modal:MatDialogRef<ServiceModalComponent>,
     private fb:FormBuilder,

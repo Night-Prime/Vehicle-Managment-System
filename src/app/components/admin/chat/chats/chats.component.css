@@ -1,0 +1,68 @@
+/* div{
+  border: 2px solid orange;
+} */
+main{
+  background-color: transparent;
+}
+.container{
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 5px;
+  padding-left: 8px;
+  margin-top: .8rem;
+  overflow-y: scroll;
+}
+.chatbox{
+  width: 100%;
+}
+
+.chatbox__user-list {
+  font-weight: 800;
+  color:orange;
+  box-shadow: 0 0px 2px black;
+  text-align: center;
+  border-bottom: 2px solid black;
+  position:static;
+}
+.messages_list {
+  margin-top: 1rem;
+}
+
+.chatbox__messages{
+  width: 50%;
+  background-color: orange;
+  font-weight: 600;
+  color: rgb(3, 3, 45);
+  border-radius: 5px;
+}
+
+.message-box{
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.user-message{
+  overflow-y: scroll;
+}
+
+.name{
+  width: 50%;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.message{
+  color: white;
+  padding-top: 1rem;
+}
+
+.send-message{
+  position: static;
+  margin-left: 40%;
+}
+

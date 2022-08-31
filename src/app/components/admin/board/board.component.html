@@ -30,6 +30,16 @@
         <section class="chart">
           <app-charts></app-charts>
         </section>
+
+        <!-- chat Button -->
+        <div class="chat">
+          <button
+            matTooltip="Send a message"
+           (click)="openModal()">
+            <fa-icon [icon]="famsg" class="fa-2x"></fa-icon>
+          </button>
+        </div>
+
         <!-- Table Section -->
         <section class="tables">
           <!-- <app-tables></app-tables> -->

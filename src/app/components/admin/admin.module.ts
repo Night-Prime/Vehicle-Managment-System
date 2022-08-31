@@ -6,6 +6,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgChartsModule } from 'ng2-charts';
 import {DataTablesModule} from 'angular-datatables';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 import { ClientComponent } from './client/client.component';
@@ -22,6 +23,9 @@ import { VehicleModalComponent } from './vehicle/vehicle-modal/vehicle-modal.com
 import { InvoiceModalComponent } from './invoice/invoice-modal/invoice-modal.component';
 import { StaffModalComponent } from './staff/staff-modal/staff-modal.component';
 import { ServiceModalComponent } from './service/service-modal/service-modal.component';
+import { UserNameComponent } from './chat/user-name/user-name.component';
+import { ChatsComponent } from './chat/chats/chats.component';
+
 
 
 
@@ -42,12 +46,15 @@ import { ServiceModalComponent } from './service/service-modal/service-modal.com
     InvoiceModalComponent,
     StaffModalComponent,
     ServiceModalComponent,
+    UserNameComponent,
+    ChatsComponent,
   ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     FontAwesomeModule,
     MatDialogModule,
+    MatTooltipModule,
     FormsModule,
     DataTablesModule,
     NgChartsModule,

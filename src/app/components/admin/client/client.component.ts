@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, ViewChild, EventEmitter, Output, Input, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from './modal/modal.component';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
@@ -30,13 +30,15 @@ export class ClientComponent implements OnInit,AfterViewInit {
   ngOnInit(): void {
     this.onGetClients();
   }
+  subscription: Subscription = new Subscription;
 
   dtOptions: DataTables.Settings = {};
   dtTrigger:Subject<any> = new Subject<any>();
 
   // Displaying all Client data
   onGetClients(): void {
-    this.service.GetAllClient().subscribe(
+
+    this.subscription = this.service.GetAllClient().subscribe(
       (response: any)=> {
         console.log(response);
         this.ClientList = response.payload;
@@ -73,6 +75,7 @@ export class ClientComponent implements OnInit,AfterViewInit {
 
   ngOnDestroy():void {
     this.dtTrigger.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }

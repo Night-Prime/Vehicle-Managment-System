@@ -43,7 +43,7 @@ export class ServiceComponent implements OnInit {
   onGetServiceByID(service: any) {
     this.modal.open(ServiceModalComponent, {
       width: '50%',
-      data: service,
+      data: service
     })
   }
 

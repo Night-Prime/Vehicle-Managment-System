@@ -1,16 +1,19 @@
+@keyframes smoothbounceball{
+  from { transform: translate3d(0, 0, 0);}
+  to { transform: translate3d(0, 50px, 0);}
+}
+
 section{
-  height: 100%;
+  height: 100vh;
   width: 90vw;
-  /* overflow-y: scroll; */
-  margin-left: .5rem;
   color:rgb(255, 165, 0);
   background-image: radial-gradient(rgb(0, 0, 0), rgb(9, 14, 29));
 }
 
 main{
   width: 100%;
+  height: 100vh;
   display: flex;
-  padding: 10px;
   flex-direction:column;
   overflow-y: scroll;
 }
@@ -35,19 +38,39 @@ header p{
   display: flex;
   flex-direction: row;
   justify-content:space-around;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
   margin-top: 1rem;
-
 }
 
 .chart{
   background: transparent;
   width: 75%;
   height:max-content;
-  margin: 2rem;
+  margin: 1rem;
   margin-left: 5rem;
-  z-index: 1;
 
+}
+
+.chat {
+  width: 60px;
+  height: 60px;
+  background:rgb(14, 14, 92);
+  border-radius: 50%;
+  text-align: center;
+  position: absolute;
+  bottom:2rem;
+  right: 2rem;
+  animation: smoothbounceball 0.5s;
+  animation-direction: alternate;
+  animation-iteration-count: 5;
+}
+
+.chat button{
+  background: transparent;
+  border:none !important;
+  color: rgb(255, 165, 0);
+  padding-top: 10px;
+  cursor: pointer;
 }
 
 .tables {
