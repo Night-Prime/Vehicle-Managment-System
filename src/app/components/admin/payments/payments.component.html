@@ -1,0 +1,40 @@
+<main>
+  <nav>
+    <!-- Transparent Navbar + icon + Date Pipe -->
+  </nav>
+  <section>
+    <form>
+      <div class="cardNumber">
+        <label> Card Number <br />
+          <p>Enter your 16-digits card number</p>
+        </label>
+        <input type="digits" placeholder=" 2451 - 3406 - 4567 - 7818">
+      </div>
+
+      <div class="card">
+        <label>
+          CVV Number <br />
+          <p>Enter the 3 digits on the card</p>
+        </label>
+        <input type="digits" placeholder="343">
+      </div>
+      <div class="card">
+        <label>
+          Expiry Date<br />
+          <p>Enter the expiration date on the card</p>
+        </label>
+        <input type="digits" placeholder="12 / 45">
+      </div>
+      <div class="card">
+        <label>
+          Password <br />
+          <p>Enter your password</p>
+        </label>
+        <input type="password" placeholder="******">
+      </div>
+      <button (click)="reqPayments(10)">
+        Pay Now
+      </button>
+    </form>
+  </section>
+</main>

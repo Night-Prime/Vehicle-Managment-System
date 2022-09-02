@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { Subject, Subscription } from 'rxjs';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { VehicleModalComponent } from './vehicle-modal/vehicle-modal.component';
 @Component({
@@ -11,7 +12,10 @@ import { VehicleModalComponent } from './vehicle-modal/vehicle-modal.component';
 })
 export class VehicleComponent implements OnInit {
 
-  constructor(private service: AuthServiceService, private  modal:MatDialog ) { }
+  constructor(private router: Router,private service: AuthServiceService, private  modal:MatDialog ) { }
+
+  fabin = faTrash;
+  fawrite = faPen;
 
   ngOnInit(): void {
     this.onGetVehicle();[]
@@ -22,14 +26,19 @@ export class VehicleComponent implements OnInit {
       this.modal.open(VehicleModalComponent);
     }
 
-  vehicleList:any;
-  Empty!:null;
+    purchase() {
+      this.router.navigate(['/payments']);
+    }
+
 
   dtOptions: DataTables.Settings = {};
   dtTrigger:Subject<any> = new Subject<any>();
 
+  // Displaying all vehicle data
+  subscription: Subscription = new Subscription;
+  vehicleList:any;
   onGetVehicle(): void {
-    this.service.GetAllVehicle().subscribe(
+    this.subscription = this.service.GetAllVehicle().subscribe(
       (response: any)=> {
         console.table(response);
         this.vehicleList = response.payload;
@@ -40,8 +49,7 @@ export class VehicleComponent implements OnInit {
     );
   }
 
-    // Deleting a data 
-
+    // Deleting a data
     onRemove(index: number){
       this.service.DeleteVehicle(index).subscribe(
         (result) => {
@@ -52,12 +60,18 @@ export class VehicleComponent implements OnInit {
         () => console.log('Selected ID deleted!')
       );
     }
-  
-    fabin = faTrash;
-  
+
+    // Edit Data & Purchase
+    onGetVehicleByID( vehicle: any){
+      this.modal.open(VehicleModalComponent, {
+        width: '50%',
+        data: vehicle
+      })
+    }
 
   ngOnDestroy():void {
     this.dtTrigger.unsubscribe();
+    this.subscription.unsubscribe();
   }
 
 }

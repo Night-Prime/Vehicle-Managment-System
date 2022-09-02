@@ -9,6 +9,7 @@ import { ClientComponent } from './client/client.component';
 import { PagenotfoundComponent } from '../pagenotfound/pagenotfound.component';
 import { AuthGuard } from 'src/app/shared/guards/auth.guard';
 import { StaffComponent } from './staff/staff.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
       { path: 'service', component:ServiceComponent, canActivate:[AuthGuard]},
       { path: 'vehicle', component:VehicleComponent, canActivate:[AuthGuard]},
       { path: 'user', component:StaffComponent, canActivate:[AuthGuard]},
+      { path: 'payment', component:PaymentsComponent, canActivate:[AuthGuard]},
       { path: '', redirectTo:'home', pathMatch: 'full'},
       {path: '**' ,component:PagenotfoundComponent}
     ]

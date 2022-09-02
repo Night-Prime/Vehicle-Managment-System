@@ -5,7 +5,6 @@
             type="text"
             placeholder="Enter Client Id"
             id="cientId"
-            [(ngModel)]="clientId"
             formControlName="clientId"
             autocomplete="off"
             required
@@ -14,7 +13,6 @@
           type="text"
           placeholder="Enter Vehicle Name"
           id="vehicleName"
-          [(ngModel)]="vehicleName"
           formControlName="vehicleName"
           autocomplete="off"
           required
@@ -23,7 +21,6 @@
           type="text"
           placeholder="Enter Model"
           id="model"
-          [(ngModel)]="model"
           formControlName="model"
           autocomplete="off"
           required
@@ -32,7 +29,6 @@
           type="text"
           placeholder="Enter Chassis Number"
           id="chassis"
-          [(ngModel)]="chassis"
           formControlName="chassis"
           autocomplete="off"
           required
@@ -43,6 +39,9 @@
           type="submit"
         >
           Register Vehicle
+        </button>
+        <button (click)="reqPayments(10)">
+          <fa-icon [icon]="fashop"></fa-icon>
         </button>
     </form>
 

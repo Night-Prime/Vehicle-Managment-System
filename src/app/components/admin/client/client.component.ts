@@ -14,6 +14,9 @@ import { Router } from '@angular/router';
 export class ClientComponent implements OnInit,AfterViewInit {
 
   constructor(private service:AuthServiceService, private modal:MatDialog, private router:Router, private cd: ChangeDetectorRef) {   }
+  fawrite = faPen;
+  fabin = faTrash;
+
   ngAfterViewInit(): void {
     this.cd.detectChanges();
   }
@@ -21,23 +24,21 @@ export class ClientComponent implements OnInit,AfterViewInit {
   openModal() {
     this.modal.open(ModalComponent);
   }
-
   closeModal(){
     this.modal.closeAll();
   }
-  ClientList:any;
-
   ngOnInit(): void {
     this.onGetClients();
   }
-  subscription: Subscription = new Subscription;
 
   dtOptions: DataTables.Settings = {};
   dtTrigger:Subject<any> = new Subject<any>();
 
   // Displaying all Client data
-  onGetClients(): void {
 
+  ClientList:any;
+  subscription: Subscription = new Subscription;
+  onGetClients(): void {
     this.subscription = this.service.GetAllClient().subscribe(
       (response: any)=> {
         console.log(response);
@@ -69,9 +70,6 @@ export class ClientComponent implements OnInit,AfterViewInit {
       () => console.log('Selected ID deleted!')
     );
   }
-  fawrite = faPen;
-  fabin = faTrash;
-  @Input()
 
   ngOnDestroy():void {
     this.dtTrigger.unsubscribe();

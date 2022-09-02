@@ -6,7 +6,7 @@
     <div class="chatbox">
       <div class="chatbox__user-list">
         <h3>Chats</h3>
-        <div class="chatbox__user--active" *ngFor="let user of userList" >
+        <div class="chatbox__user--active" *ngFor="let user of userList; let i as index" >
           <p>{{ user }}</p>
         </div>
       </div>

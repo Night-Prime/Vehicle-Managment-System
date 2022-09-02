@@ -21,7 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let vehicle of vehicleList">
+          <tr *ngFor="let vehicle of vehicleList" (click)="onGetVehicleByID(vehicle)">
             <td>{{vehicle.id}}</td>
             <td>{{vehicle.vehicleName}}</td>
             <td>{{vehicle.chassis}}</td>
@@ -29,6 +29,9 @@
             <td>
               <button (click)="onRemove(vehicle.id)">
                 <fa-icon [icon]="fabin"></fa-icon>
+              </button>
+              <button (click)="onGetVehicleByID(vehicle)">
+                <fa-icon [icon]="fawrite"></fa-icon>
               </button>
             </td>
           </tr>

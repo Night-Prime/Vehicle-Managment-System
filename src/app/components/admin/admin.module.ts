@@ -25,6 +25,7 @@ import { StaffModalComponent } from './staff/staff-modal/staff-modal.component';
 import { ServiceModalComponent } from './service/service-modal/service-modal.component';
 import { UserNameComponent } from './chat/user-name/user-name.component';
 import { ChatsComponent } from './chat/chats/chats.component';
+import { PaymentsComponent } from './payments/payments.component';
 
 
 
@@ -48,6 +49,7 @@ import { ChatsComponent } from './chat/chats/chats.component';
     ServiceModalComponent,
     UserNameComponent,
     ChatsComponent,
+    PaymentsComponent,
   ],
   imports: [
     CommonModule,
