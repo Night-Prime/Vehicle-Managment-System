@@ -1,9 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NgToastService } from 'ng-angular-popup';
 import { Router } from '@angular/router';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
+import { PaymentService } from 'src/app/shared/services/payment.service';
 
 @Component({
   selector: 'app-vehicle-modal',
@@ -12,7 +14,7 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
 })
 export class VehicleModalComponent implements OnInit {
   AddNewVehicle!: FormGroup ;
-  constructor(private service: AuthServiceService,
+  constructor(private service: AuthServiceService, private payment: PaymentService,
     private modal:MatDialogRef<VehicleModalComponent>, private router:Router,
     private fb:FormBuilder, @Inject(MAT_DIALOG_DATA) public editData:any
     ) { }
@@ -48,20 +50,33 @@ export class VehicleModalComponent implements OnInit {
 
   // Making Payments
   paymentHandler: any = null;
+  success:boolean = false;
+  failure:boolean = false;
+
+
   reqPayments(amount: number): void {
     const paymentHandler = (<any>window).StripeCheckout.configure({
       key:"pk_test_51LdYVzEeDGSxgmW9irNHZiYPDEaQRhiKWQNg1rEqJixdSNsCiwbmYmTzItTZcH2MaNEf4myxYBgsNo9Sfyg0Z8r500OeJ01wLx",
       locale: 'auto',
       token: function(stripeToken: any) {
         console.log(stripeToken);
+
+        paymentStripe(stripeToken)
       }
     });
 
+    const paymentStripe =(stripeToken: any) => {
+      this.payment.reqPayments(stripeToken).subscribe((data: any) => {
+        console.log(data)
+      })
+    }
+
+    // Modal popup to fill out credit card information
     paymentHandler.open({
       name: "NovaQ Motors",
       description: "An AutoMobile Vehicle Management System ",
-      amount: amount * 100
-    })
+      amount: amount * 1000
+    });
   }
 
   invokeStripe(): void {
