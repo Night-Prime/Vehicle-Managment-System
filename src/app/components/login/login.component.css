@@ -87,7 +87,7 @@ form input::placeholder {
   padding-left: .5rem;
 }
 
-form button {
+button,form button {
   margin-top: 1rem;
   margin-left: 5rem;
   width: 20%;

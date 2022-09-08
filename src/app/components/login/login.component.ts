@@ -43,6 +43,29 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  // Guest Mode function
+  guestLogin = new FormGroup({
+    email: new FormControl("superadmin@gmail.com", Validators.required),
+    password: new FormControl("password", Validators.required)
+  })
+
+  guest(){
+    console.log(this.guestLogin.value)
+      this.service.userLogin(this.guestLogin.value).subscribe(results =>{
+        if(results != null){
+          this.responseData = results;
+          this.toast.success({detail: 'Sucess!',summary: 'You are logged in sucessfully!',duration:5000});
+          localStorage.setItem('token', this.responseData.payload.token);
+          localStorage.setItem('email', this.responseData.payload.email);
+          localStorage.setItem('password', this.responseData.payload.password);
+          this.router.navigate(['/admin'])
+        }
+      }, (error) => {
+        console.log('Error was found at login');
+        this.toast.error({detail: 'Invalid credentials', summary: 'The token is Invalid!', duration:5000});
+      })
+  }
+
 
 
   ngOnInit(): void {
