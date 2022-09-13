@@ -1,3 +1,4 @@
+import { SocialAuthService, FacebookLoginProvider } from 'angularx-social-login';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
@@ -10,7 +11,7 @@ import { NgToastService } from 'ng-angular-popup';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private service:AuthServiceService, private router:Router, private toast: NgToastService) {
+  constructor(private service:AuthServiceService, private router:Router, private toast: NgToastService, private socialService:SocialAuthService) {
    this.service.logOut();
    }
 
@@ -66,9 +67,20 @@ export class LoginComponent implements OnInit {
       })
   }
 
+  // Facebook Login
+  public loggedIn!: boolean;
+  public user: any;
+  fbLogin() {
+    this.socialService.signIn(FacebookLoginProvider.PROVIDER_ID)
+  }
+
 
 
   ngOnInit(): void {
+    this.socialService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = user != null;
+    })
   }
 
 }

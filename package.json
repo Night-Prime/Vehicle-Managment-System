@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.2",
     "@fortawesome/free-solid-svg-icons": "^6.1.2",
     "angular-datatables": "^13.1.0",
+    "angularx-social-login": "^4.1.0",
     "chart.js": "^3.8.2",
     "datatables.net-dt": "^1.12.1",
     "jquery": "^3.6.1",

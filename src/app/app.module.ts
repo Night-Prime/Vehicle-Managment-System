@@ -6,6 +6,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { DataTablesModule } from "angular-datatables";
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgToastModule } from 'ng-angular-popup';
+import {SocialAuthServiceConfig, SocialAuthService} from 'angularx-social-login';
+import {FacebookLoginProvider} from 'angularx-social-login';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -48,15 +50,35 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [AuthGuard,{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  },{
-    provide: HTTP_INTERCEPTORS,
-    useClass: LoadingService,
-    multi: true
-  }],
+  providers: [
+    AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingService,
+      multi: true
+    },
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue:{
+        autoLogin: false,
+        providers:[
+          {
+          id: FacebookLoginProvider.PROVIDER_ID,
+          provider: new FacebookLoginProvider("468945031921499")
+          }
+        ],
+        onError:(err: any) => {
+          console.log(err)
+        },
+      } as SocialAuthServiceConfig
+    },
+    SocialAuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
