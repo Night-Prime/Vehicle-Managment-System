@@ -3,7 +3,7 @@ export const environment = {
   BASE_URL: "https://lightup-autocare.herokuapp.com",
    firebaseConfig : {
     apiKey: "AIzaSyA0WP2LUPVLQ4vE1EvoYk--zcrNb4mv5LU",
-    authDomain: "https://vehicle-managment-system.vercel.app/login",
+    authDomain: "novaq-ebd4b.firebaseapp.com",
     databaseURL: "https://novaq-ebd4b-default-rtdb.firebaseio.com",
     projectId: "novaq-ebd4b",
     storageBucket: "novaq-ebd4b.appspot.com",
