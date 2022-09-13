@@ -6,8 +6,6 @@ import { NgChartsModule } from 'ng2-charts';
 import { DataTablesModule } from "angular-datatables";
 import {MatDialogModule} from '@angular/material/dialog';
 import { NgToastModule } from 'ng-angular-popup';
-import {SocialAuthServiceConfig, SocialAuthService} from 'angularx-social-login';
-import {FacebookLoginProvider} from 'angularx-social-login';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -54,7 +52,8 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     NgToastModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
     BrowserAnimationsModule
   ],
   providers: [
