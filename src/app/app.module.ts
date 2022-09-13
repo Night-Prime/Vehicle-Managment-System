@@ -54,7 +54,7 @@ import { environment } from 'src/environments/environment';
     ReactiveFormsModule,
     NgToastModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule
   ],
   providers: [
