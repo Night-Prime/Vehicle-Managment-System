@@ -23,6 +23,12 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { SpinnerComponent } from './animations/spinner/spinner.component';
 import { LoadingService } from './shared/services/loading.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FbAuthService } from './shared/services/fb-auth.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment';
+
+
 
 
 
@@ -48,10 +54,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ReactiveFormsModule,
     NgToastModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule
   ],
   providers: [
-    AuthGuard,
+    AuthGuard,FbAuthService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
@@ -62,22 +69,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       useClass: LoadingService,
       multi: true
     },
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue:{
-        autoLogin: false,
-        providers:[
-          {
-          id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider("468945031921499")
-          }
-        ],
-        onError:(err: any) => {
-          console.log(err)
-        },
-      } as SocialAuthServiceConfig
-    },
-    SocialAuthService
+    // {
+    //   provide: 'SocialAuthServiceConfig',
+    //   useValue:{
+    //     autoLogin: false,
+    //     providers:[
+    //       {
+    //       id: FacebookLoginProvider.PROVIDER_ID,
+    //       provider: new FacebookLoginProvider("468945031921499")
+    //       }
+    //     ],
+    //     onError:(err: any) => {
+    //       console.log(err)
+    //     },
+    //   } as SocialAuthServiceConfig
+    // },
+    // SocialAuthService
   ],
   bootstrap: [AppComponent]
 })

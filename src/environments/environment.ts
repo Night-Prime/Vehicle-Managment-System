@@ -4,8 +4,15 @@
 
 export const environment = {
   production: false,
-  BASE_URL: "https://lightup-autocare.herokuapp.com"
+  BASE_URL: "https://lightup-autocare.herokuapp.com",
+  firebaseConfig: {
+    apiKey: "AIzaSyA0WP2LUPVLQ4vE1EvoYk--zcrNb4mv5LU",
+    authDomain: "https://novaq-ebd4b.firebaseapp.com/__/auth/handler",
+    projectId: "novaq-ebd4b",
+    appId: "468945031921499",
+  }
 };
+
 
 /*
  * For easier debugging in development mode, you can import the following file

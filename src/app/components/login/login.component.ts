@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { NgToastService } from 'ng-angular-popup';
+import { FbAuthService } from 'src/app/shared/services/fb-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,12 @@ import { NgToastService } from 'ng-angular-popup';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(private service:AuthServiceService, private router:Router, private toast: NgToastService, private socialService:SocialAuthService) {
+  constructor(
+    private service:AuthServiceService,
+    private router:Router,
+    private toast: NgToastService,
+    public social:FbAuthService
+     ) {
    this.service.logOut();
    }
 
@@ -71,16 +77,16 @@ export class LoginComponent implements OnInit {
   public loggedIn!: boolean;
   public user: any;
   fbLogin() {
-    this.socialService.signIn(FacebookLoginProvider.PROVIDER_ID)
+    // this.socialService.signIn(FacebookLoginProvider.PROVIDER_ID)
   }
 
 
 
   ngOnInit(): void {
-    this.socialService.authState.subscribe((user) => {
-      this.user = user;
-      this.loggedIn = user != null;
-    })
+    // this.socialService.authState.subscribe((user) => {
+    //   this.user = user;
+    //   this.loggedIn = user != null;
+    // })
   }
 
 }
