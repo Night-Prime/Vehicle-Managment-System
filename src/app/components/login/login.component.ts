@@ -73,20 +73,10 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  // Facebook Login
-  public loggedIn!: boolean;
-  public user: any;
-  fbLogin() {
-    // this.socialService.signIn(FacebookLoginProvider.PROVIDER_ID)
-  }
 
 
 
   ngOnInit(): void {
-    // this.socialService.authState.subscribe((user) => {
-    //   this.user = user;
-    //   this.loggedIn = user != null;
-    // })
   }
 
 }
