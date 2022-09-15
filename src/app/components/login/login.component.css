@@ -12,6 +12,13 @@ main {
   background-color: black;
 }
 
+.asides{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  width: inherit;
+}
+
 .log-head {
   background-color: black;
   width: 100vw;
@@ -96,6 +103,7 @@ button,form button {
   color: blue;
   background-color: orange;
   font-weight: 700;
+  cursor:pointer;
 }
 
 form button:disabled {
@@ -105,4 +113,29 @@ form button:disabled {
 form button:hover {
   color: blue;
   background-color: white;
+}
+
+.alt-btns {
+  width: 20%;
+  float: right;
+  display: flex;
+  flex-direction: column;
+}
+
+.guest-btn{
+  background-color: white !important;
+}
+
+.google-btn{
+  background-color: red !important;
+}
+
+.facebook-btn{
+  background-color: blue !important;
+  color: white !important;
+}
+
+.alt-btns button:hover{
+  background-color: orange !important;
+  color: white;
 }

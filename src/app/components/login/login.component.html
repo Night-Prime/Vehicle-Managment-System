@@ -6,41 +6,45 @@
       <h1>Nova<span class="special-txt">Q</span></h1>
     </header>
     <section class="log-parts">
-      <div class="log-body">
-        <h5 class="text-header-5">Subscribe to our new features.</h5>
-        <h3 class="text-header-3">Your vehicle maintenance is of uptmost priority</h3>
-        <h1 class="text-header">Login into your <span class="special-txt">Service Space!</span></h1>
+      <div class="asides">
+        <div class="log-body">
+          <h5 class="text-header-5">Subscribe to our new features.</h5>
+          <h3 class="text-header-3">Your vehicle maintenance is of uptmost priority</h3>
+          <h1 class="text-header">Login into your <span class="special-txt">Service Space!</span></h1>
 
-        <form [formGroup]="Login" (ngSubmit)="login()">
-          <input type="email"
-            name="email"
-            id="email"
-            placeholder="Enter Registered Email"
-            formControlName="email"
-            autocomplete="off"
-            required />
-          <input type="password"
-            name="password"
-            id="password"
-            placeholder="Enter Password"
-            formControlName="password"
-            required />
-          <button
-          [disabled]="!Login.valid">
-              Login
+          <form [formGroup]="Login" (ngSubmit)="login()">
+            <input type="email"
+              name="email"
+              id="email"
+              placeholder="Enter Registered Email"
+              formControlName="email"
+              autocomplete="off"
+              required />
+            <input type="password"
+              name="password"
+              id="password"
+              placeholder="Enter Password"
+              formControlName="password"
+              required />
+            <button
+            [disabled]="!Login.valid">
+                Login
+            </button>
+          </form>
+        </div>
+        <div class="alt-btns">
+          <button class="guest-btn" (click)="guest()">
+            Guest Mode
           </button>
-        </form>
+          <!-- other Login buttons -->
+          <button class="facebook-btn" (click)="social.FacebookAuth()">
+            Login with Facebook
+          </button>
+          <button class="google-btn" (click)="social.GoogleAuth()">
+            Login with Google
+          </button>
+        </div>
       </div>
-      <button (click)="guest()">
-        Guest Mode
-      </button>
-      <!-- other Login buttons -->
-      <button (click)="social.FacebookAuth()">
-        Login with Facebook
-      </button>
-      <button (click)="social.GoogleAuth()">
-        Login with Google
-      </button>
     </section>
   </main>
 </div>
