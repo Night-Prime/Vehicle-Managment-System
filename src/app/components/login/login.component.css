@@ -11,13 +11,13 @@ main {
   color:white;
   background-color: black;
 }
-
+/*
 .asides{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   width: inherit;
-}
+} */
 
 .log-head {
   background-color: black;
@@ -115,12 +115,12 @@ form button:hover {
   background-color: white;
 }
 
-.alt-btns {
+/* .alt-btns {
   width: 20%;
   float: right;
   display: flex;
   flex-direction: column;
-}
+} */
 
 .guest-btn{
   background-color: white !important;
