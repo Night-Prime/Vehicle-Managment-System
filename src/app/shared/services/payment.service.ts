@@ -13,7 +13,7 @@ export class PaymentService {
 
   // function to make POST request to the server
   reqPayments(stripeToken: any):Observable<any> {
-    const url = "https://light-auto-care-server.herokuapp.com/";
+    const url = "https://light-auto-care-server.herokuapp.com/checkout/";
 
     return this.http.post<any> (url, {token: stripeToken});
   }

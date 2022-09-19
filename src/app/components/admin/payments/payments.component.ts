@@ -15,7 +15,7 @@ export class PaymentsComponent implements OnInit {
 
   reqPayments(amount: number): void {
     const paymentHandler = (<any>window).StripeCheckout.configure({
-      key:"pk_test_51LdYVzEeDGSxgmW9irNHZiYPDEaQRhiKWQNg1rEqJixdSNsCiwbmYmTzItTZcH2MaNEf4myxYBgsNo9Sfyg0Z8r500OeJ01wLx",
+      key:"sk_test_51LdYVzEeDGSxgmW9ZDyUpn8Et1h5KDPUFYgpvVNA6p7Vr65Ou6IHwwNE9ZlAcbh8ERaE7drFkgb9jDZs54oxkoMk004ZF78Hyw",
       locale: 'auto',
       token: function(stripeToken: any) {
         console.log(stripeToken);
