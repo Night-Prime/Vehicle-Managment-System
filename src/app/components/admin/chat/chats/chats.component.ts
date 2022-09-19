@@ -49,13 +49,15 @@ export class ChatsComponent implements OnInit {
     });
     this.socket.on('user-list', (userList: string[]) => {
       this.userList = userList;
+      console.log(this.socket.id);
     });
 
     this.socket.on('message-broadcast', (data: {message: string, userName: string}) => {
       if(data){
         this.messageList.push({message: data.message, userName: data.userName, mine: false});
       }
-    })
+    });
+
   }
 
   sendMessage():void{
