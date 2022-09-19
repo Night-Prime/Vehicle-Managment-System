@@ -39,7 +39,7 @@ export class ChatsComponent implements OnInit {
   socket: any;
 
   userNameUpdate(name: string):void {
-    this.socket = io.io(`https://light-auto-care-server.herokuapp.com?userName=${name}`, )
+    this.socket = io.io(`https://light-auto-care-server.herokuapp.com/chats?userName=${name}`, )
     this.userName = name;
 
     this.socket.emit('set-user-name', name);
