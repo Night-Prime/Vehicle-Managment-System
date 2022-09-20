@@ -31,18 +31,18 @@
                 Login
             </button>
           </form>
+          <div class="alt-btns">
+            <button class="guest-btn" (click)="guest()">
+              Guest Mode
+            </button>
+            <button class="facebook-btn" (click)="social.FacebookAuth()">
+              Facebook
+            </button>
+            <button class="google-btn" (click)="social.GoogleAuth()">
+              Google
+            </button>
+          </div>
         </div>
-        <!-- <div class="alt-btns">
-          <button class="guest-btn" (click)="guest()">
-            Guest Mode
-          </button>
-          <button class="facebook-btn" (click)="social.FacebookAuth()">
-            Login with Facebook
-          </button>
-          <button class="google-btn" (click)="social.GoogleAuth()">
-            Login with Google
-          </button>
-        </div> -->
       </div>
     </section>
   </main>

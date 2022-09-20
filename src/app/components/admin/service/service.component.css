@@ -75,10 +75,10 @@ td{
 }
 
 td button{
-  width: 50%;
-  background-color:red;
+  width: 35%;
+  background-color:transparent;
   color:white;
-  border: 1 solid red;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 

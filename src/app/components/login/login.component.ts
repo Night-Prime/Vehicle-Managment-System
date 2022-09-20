@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
   })
 
   login() {
-    console.log(this.Login.value, 'Submitted!')
+    // console.log(this.Login.value, 'Submitted!')
     if(this.Login.valid){
       this.service.userLogin(this.Login.value).subscribe(results =>{
         if(results != null){

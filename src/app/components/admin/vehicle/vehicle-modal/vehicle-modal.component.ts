@@ -16,6 +16,7 @@ export class VehicleModalComponent implements OnInit {
   AddNewVehicle!: FormGroup ;
   constructor(private service: AuthServiceService, private payment: PaymentService,
     private modal:MatDialogRef<VehicleModalComponent>, private router:Router,
+    private toast: NgToastService,
     private fb:FormBuilder, @Inject(MAT_DIALOG_DATA) public editData:any
     ) { }
 
@@ -34,8 +35,8 @@ export class VehicleModalComponent implements OnInit {
       this.AddNewVehicle.controls['vehicleName'].setValue(this.editData.vehicleName),
       this.AddNewVehicle.controls['model'].setValue(this.editData.model),
       this.AddNewVehicle.controls['chassis'].setValue(this.editData.chassis)
+      this.toast.success({detail: 'Sucess!',summary: 'You are logged in sucessfully!',duration:5000})
     }
-
     console.log(this.editData);
   }
 
@@ -45,6 +46,7 @@ export class VehicleModalComponent implements OnInit {
     this.service.AddVehicle(this.AddNewVehicle.value).subscribe(result => {
       console.log(result),
       this.modal.close()
+      this.toast.success({detail: 'Sucess!',summary: 'You are logged in sucessfully!',duration:5000});
     })
   }
 

@@ -1,6 +1,6 @@
 .container {
   width: 100vw;
-  height: 100vh;
+  min-height:max-content;
 }
 
 main {
@@ -11,14 +11,6 @@ main {
   color:white;
   background-color: black;
 }
-/*
-.asides{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  width: inherit;
-} */
-
 .log-head {
   background-color: black;
   width: 100vw;
@@ -115,11 +107,15 @@ form button:hover {
   background-color: white;
 }
 
-/* .alt-btns {
-  width: 20%;
+.alt-btns {
+  width:50%;
   float: right;
   display: flex;
-  flex-direction: column;
+  flex-direction: crow;
+}
+
+/* .alt-btns button{
+  border-radius: 50%;
 } */
 
 .guest-btn{
@@ -132,10 +128,10 @@ form button:hover {
 
 .facebook-btn{
   background-color: blue !important;
-  color: white !important;
+  color: white;
 }
 
 .alt-btns button:hover{
-  background-color: orange !important;
-  color: white;
+  background-color: white !important;
+  color: orange;
 }

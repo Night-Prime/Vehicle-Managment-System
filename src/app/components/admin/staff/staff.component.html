@@ -21,14 +21,17 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of staffList">
-            <td>{{ user.id}}</td>
-            <td>{{ user.name}}</td>
-            <td>{{ user.email}}</td>
-            <td>{{ user.role}}</td>
+          <tr *ngFor="let staff of staffList">
+            <td>{{ staff.id}}</td>
+            <td>{{ staff.name}}</td>
+            <td>{{ staff.email}}</td>
+            <td>{{ staff.role}}</td>
             <td>
-              <button (click)="onRemove(user.id)">
+              <button (click)="onRemove(staff.id)">
                 <fa-icon [icon]="fabin"></fa-icon>
+              </button>
+              <button (click)="onGetStaffByID(staff)">
+                <fa-icon [icon]="fawrite"></fa-icon>
               </button>
             </td>
           </tr>

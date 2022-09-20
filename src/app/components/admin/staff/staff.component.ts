@@ -3,7 +3,7 @@ import { AuthServiceService } from 'src/app/shared/services/auth-service.service
 import { Subject } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { StaffModalComponent } from './staff-modal/staff-modal.component';
-import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-staff',
@@ -38,7 +38,7 @@ openModal() {
     );
   }
 
-    // Deleting a data 
+    // Deleting a data
 
     onRemove(index: number){
       this.service.DeleteStaff(index).subscribe(
@@ -50,10 +50,19 @@ openModal() {
         () => console.log('Selected ID deleted!')
       );
     }
-  
+
+    // Edit Data & Purchase
+    onGetStaffByID( staff: any){
+      this.modal.open(StaffModalComponent, {
+        width: '50%',
+        data: staff
+      })
+    }
+
     fabin = faTrash;
-      
-  
+    fawrite = faPen;
+
+
 
   ngOnDestroy():void {
     this.dtTrigger.unsubscribe();
