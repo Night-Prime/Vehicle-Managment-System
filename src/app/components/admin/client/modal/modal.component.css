@@ -28,7 +28,7 @@ form button{
   cursor:pointer;
 }
 
-form button:hover{
+form button:hover, button{
   background-color: red;
   border: 2px solid red;
   color:white;

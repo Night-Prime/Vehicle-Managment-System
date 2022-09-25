@@ -52,6 +52,7 @@ export class ClientComponent implements OnInit,AfterViewInit {
 
     // Edit data
     onGetClientByID(client : any) {
+      this.reloadComponent();
       this.modal.open(ModalComponent, {
         width: '50%',
         data: client,
@@ -64,12 +65,20 @@ export class ClientComponent implements OnInit,AfterViewInit {
     this.service.DeleteClient(index).subscribe(
       (result) => {
       console.log(result)
-      window.location.reload()
+      this.reloadComponent();
       },
       (err:any) => console.log(err),
       () => console.log('Selected ID deleted!')
     );
   }
+
+  // helps in reloading the component
+  reloadComponent() {
+    let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+    }
 
   ngOnDestroy():void {
     this.dtTrigger.unsubscribe();

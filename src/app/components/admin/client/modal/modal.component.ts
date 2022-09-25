@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-modal',
@@ -12,6 +13,7 @@ export class ModalComponent implements OnInit {
   AddNewClient!: FormGroup ;
   constructor(private fb:FormBuilder,
     private service: AuthServiceService,
+    private router: Router,
     private modal:MatDialogRef<ModalComponent>,
     @Inject(MAT_DIALOG_DATA)public editData: any) {
    }
@@ -40,8 +42,22 @@ export class ModalComponent implements OnInit {
   addClient(){
     this.service.AddClient(this.AddNewClient.value).subscribe(result => {
       console.log(result),
-      this.modal.close()
+      this.modal.close(),
+      this.reloadComponent()
     })
   }
+
+  reloadComponent() {
+    let currentUrl = this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.router.onSameUrlNavigation = 'reload';
+        this.router.navigate([currentUrl]);
+  }
+
+  closeModal() {
+    this.modal.close();
+    this.reloadComponent();
+  }
+
 
 }

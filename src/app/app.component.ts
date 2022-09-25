@@ -20,6 +20,7 @@ export class AppComponent implements AfterViewInit{
      console.log(err)
     });
     this.onesignal.on('subscriptionChange', function(isSubscribed) {
+      console.log(onesignal.getUserId);
       console.log("The user's subscription state is now:", isSubscribed);
     });
   }

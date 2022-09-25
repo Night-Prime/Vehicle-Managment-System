@@ -24,9 +24,12 @@
                 required><br>
         <button style="width: 50%; margin:auto; display: block; margin-top: 1rem"
                 [disabled]="!AddNewClient"
-                type="submit">Register Client
+                type="submit">Save
         </button>
     </form>
+    <button (click)="closeModal()"
+    type="submit">Close
+</button>
 
   </section>
 
