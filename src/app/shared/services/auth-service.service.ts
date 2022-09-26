@@ -22,11 +22,19 @@ export class AuthServiceService {
   private LOGIN_URL = this.BASE_URL+ this.endpoint.staff+"/login";
   private SIGN_UP = this.BASE_URL + this.endpoint.staff+"/signup";
 
+  // alternative endpoint
+  private ALT_URL = "https://light-auto-care-server.herokuapp.com"
+
   constructor(private http: HttpClient) { }
 
   // user login
   userLogin(user: any) {
     return this.http.post(this.LOGIN_URL, user)
+  }
+
+  // Google login
+  googleLogin(user:any){
+    return this.http.post(this.ALT_URL +this.endpoint, user);
   }
 
   //logging out

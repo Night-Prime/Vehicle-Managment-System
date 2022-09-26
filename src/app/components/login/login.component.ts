@@ -1,4 +1,3 @@
-import { SocialAuthService, FacebookLoginProvider } from 'angularx-social-login';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormGroupName, Validators } from '@angular/forms';
@@ -38,13 +37,13 @@ export class LoginComponent implements OnInit {
         if(results != null){
           this.responseData = results;
           this.toast.success({detail: 'Sucess!',summary: 'You are logged in sucessfully!',duration:5000});
-          localStorage.setItem('token', this.responseData.payload.token);
-          localStorage.setItem('email', this.responseData.payload.email);
-          localStorage.setItem('password', this.responseData.payload.password);
+          // localStorage.setItem('token', this.responseData.payload.token);
+          // localStorage.setItem('email', this.responseData.payload.email);
+          // localStorage.setItem('password', this.responseData.payload.password);
           this.router.navigate(['/admin'])
         }
       }, (error) => {
-        console.log('Error was found at login');
+        console.log(`Error was found at login, message: ${error}`);
         this.toast.error({detail: 'Invalid credentials', summary: 'The token is Invalid!', duration:5000});
       })
     }
@@ -71,6 +70,17 @@ export class LoginComponent implements OnInit {
         console.log('Error was found at login');
         this.toast.error({detail: 'Invalid credentials', summary: 'The token is Invalid!', duration:5000});
       })
+  }
+
+  onSignIn(googleUser : any) {
+    const profile = googleUser.getBasicProfile();
+    this.service.googleLogin(profile).subscribe(result => {
+      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+      console.log('Name: ' + profile.getName());
+      console.log('Image URL: ' + profile.getImageUrl());
+      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+      console.log('Button has been pressed')
+    })
   }
 
 

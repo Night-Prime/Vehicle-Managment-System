@@ -9,7 +9,7 @@ import { OneSignal } from 'onesignal-ngx';
 export class AppComponent implements AfterViewInit{
   constructor(private cd: ChangeDetectorRef, private onesignal:OneSignal) {
     this.onesignal.init({
-      appId: "65503543-7f3f-4440-b1c0-62dced4533ea",
+      appId: "5bba87eb-7795-44f6-949e-abeae0c5c04e",
       serviceWorkerParam : {
         scope: 'src/OneSignalSDKWorker.js'
       },
