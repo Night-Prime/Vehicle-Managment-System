@@ -74,13 +74,10 @@ export class LoginComponent implements OnInit {
 
   onSignIn(googleUser : any) {
     const profile = googleUser.getBasicProfile();
-    this.service.googleLogin(profile).subscribe(result => {
-      console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-      console.log('Name: ' + profile.getName());
-      console.log('Image URL: ' + profile.getImageUrl());
-      console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-      console.log('Button has been pressed')
-    })
+    console.log('ID: ' + profile.getId());
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail());
   }
 
 
