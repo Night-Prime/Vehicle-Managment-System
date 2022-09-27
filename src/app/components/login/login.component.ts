@@ -37,9 +37,9 @@ export class LoginComponent implements OnInit {
         if(results != null){
           this.responseData = results;
           this.toast.success({detail: 'Sucess!',summary: 'You are logged in sucessfully!',duration:5000});
-          // localStorage.setItem('token', this.responseData.payload.token);
-          // localStorage.setItem('email', this.responseData.payload.email);
-          // localStorage.setItem('password', this.responseData.payload.password);
+          localStorage.setItem('token', this.responseData.payload.token);
+          localStorage.setItem('email', this.responseData.payload.email);
+          localStorage.setItem('password', this.responseData.payload.password);
           this.router.navigate(['/admin'])
         }
       }, (error) => {
@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit {
       })
   }
 
-  onSignIn(googleUser : any) {
+  onSignIn(googleUser: { getBasicProfile: () => any; }) {
     const profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId());
     console.log('Name: ' + profile.getName());
