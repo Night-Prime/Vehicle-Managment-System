@@ -37,9 +37,12 @@ export class ChatsComponent implements OnInit {
   messageList: {message: string, userName: string, mine: boolean}[] = [];
   userList:string[] = [];
   socket: any;
+  url = `https://light-auto-care-server.herokuapp.com`;
 
   userNameUpdate(name: string):void {
-    this.socket = io.io(`https://light-auto-care-server.herokuapp.com?userName=${name}`)
+    this.socket = io.io(`${this.url}`,{
+      query: {userName: this.userName = name}
+    });
     this.userName = name;
 
     this.socket.emit('set-user-name', name);
