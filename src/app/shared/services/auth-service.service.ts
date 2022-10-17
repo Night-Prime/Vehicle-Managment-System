@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { Observable, throwError } from 'rxjs';
+import { Client } from '../interface/client';
 
 @Injectable({
   providedIn: 'root'
@@ -16,10 +17,8 @@ export class AuthServiceService {
     "staff": "/staffs"
   }
 
-  // base url imported from environment folder
     // alternative endpoint
-    private BASE_URL = "https://light-auto-care-server.herokuapp.com"
-  // private BASE_URL= "http://localhost:3000";
+  private BASE_URL = "https://light-auto-care-server.herokuapp.com"
   private LOGIN_URL = this.BASE_URL+ this.endpoint.staff+"/login";
   private SIGN_UP = this.BASE_URL + this.endpoint.staff+"/signup";
 
@@ -43,19 +42,24 @@ export class AuthServiceService {
   // consuming each endpoints
 
   // clients
-  GetAllClient() {
+  GetAllClient():Observable<any> {
     return this.http.get(`${this.BASE_URL + this.endpoint.client}`);
   }
-  AddClient(cred: any) {
+  AddClient(cred: any):Observable<any>{
     return this.http.post(`${this.BASE_URL + this.endpoint.client}`, cred);
   }
-  DeleteClient(index:any) {
+  DeleteClient(index:any):Observable<any> {
     console.log(index)
     return this.http.delete(`${this.BASE_URL +this.endpoint.client+ "/"+index }`);
   }
-  GetClient(id: any) {
+  GetClient(id: any):Observable<any> {
     return this.http.get(`${this.BASE_URL + this.endpoint.client+ "/"+ id}`);
   }
+  updateClient(id: any, value:Client):Observable<any> {
+    return this.http.put(`${this.BASE_URL + this.endpoint.client+ "/"+ id}`, value);
+  }
+
+
 
   // vehicles
   GetAllVehicle() {

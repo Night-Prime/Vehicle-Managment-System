@@ -1,8 +1,9 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnInit } from '@angular/core';
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef,MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-modal',
@@ -13,12 +14,16 @@ export class ModalComponent implements OnInit {
   AddNewClient!: FormGroup ;
   constructor(private fb:FormBuilder,
     private service: AuthServiceService,
-    private router: Router,
+    private router: Router, private cd: ChangeDetectorRef,
     private modal:MatDialogRef<ModalComponent>,
     @Inject(MAT_DIALOG_DATA)public editData: any) {
    }
 
   email= ''; name = ''; telephone='';
+  editMode:boolean = false;
+  userId:any = this.modal.id;
+  clientList$:any;
+  subscription: Subscription = new Subscription;
 
   // Attach Values to Modal during 'edit'
   ngOnInit(): void {
@@ -30,34 +35,43 @@ export class ModalComponent implements OnInit {
     })
 
     if(this.editData) {
+      this.editMode = true;
         this.AddNewClient.controls['email'].setValue(this.editData.email);
         this.AddNewClient.controls['name'].setValue(this.editData.name);
         this.AddNewClient.controls['telephone'].setValue(this.editData.telephone);
     }
-    console.log(this.editData);
   }
 
 
   // POST function of Form Data
-  addClient(){
-    this.service.AddClient(this.AddNewClient.value).subscribe(result => {
-      console.log(result),
-      this.modal.close(),
-      this.reloadComponent()
-    })
+  addClient() {
+    if (!this.editMode) {
+      this.service.AddClient(this.AddNewClient.value).subscribe(result => {
+        this.modal.close(),
+          this.reloadComponent()
+      })
+    } else {
+      this.service.updateClient(this.userId, this.editData = this.AddNewClient.value).subscribe(
+        result => {
+          this.modal.close(),
+            this.reloadComponent()
+        });
+    }
   }
 
   reloadComponent() {
-    let currentUrl = this.router.url;
-        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-        this.router.onSameUrlNavigation = 'reload';
-        this.router.navigate([currentUrl]);
+    // let currentUrl = this.router.url;
+    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+    // this.router.onSameUrlNavigation = 'reload';
+    // this.router.navigate([currentUrl]);
+    this.service.GetAllClient().toPromise().then((result) => {
+      this.clientList$ = result;
+      console.log('Promise Happened!');
+    })
   }
 
   closeModal() {
     this.modal.close();
     this.reloadComponent();
   }
-
-
 }

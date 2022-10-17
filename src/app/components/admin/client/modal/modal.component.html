@@ -22,14 +22,16 @@
                 formControlName="telephone"
                 autocomplete="off"
                 required><br>
-        <button style="width: 50%; margin:auto; display: block; margin-top: 1rem"
+        <input style="width: 50%; margin:auto; display: block; margin-top: 1rem"
                 [disabled]="!AddNewClient"
-                type="submit">Save
-        </button>
+                value="{{ editMode ? 'Update Client': 'Save Client'}}"
+                type="submit">
     </form>
-    <button (click)="closeModal()"
-    type="submit">Close
-</button>
+    <div class="form--btns">
+      <button (click)="closeModal()"
+      type="submit">Close
+    </button>
+    </div>
 
   </section>
 

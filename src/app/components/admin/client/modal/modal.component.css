@@ -28,8 +28,16 @@ form button{
   cursor:pointer;
 }
 
+.form--btns{
+  display: flex;
+  flex-direction: row;
+}
+
 form button:hover, button{
   background-color: red;
   border: 2px solid red;
+  border-radius: 5px;
   color:white;
+  padding: 4px;
+  margin-left: 1rem;
 }

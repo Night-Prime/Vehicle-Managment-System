@@ -21,13 +21,13 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let client of ClientList; let i = index;">
+          <tr *ngFor="let client of ClientList$; let i = index;">
             <td>{{client.id}}</td>
             <td>{{client.name}}</td>
             <td>{{client.email}}</td>
             <td>{{client.telephone}}</td>
             <td>
-              <button (click)="onGetClientByID(client)">
+              <button (click)="onGetClientByID(client, client.id)">
                 <fa-icon [icon]="fawrite"></fa-icon>
               </button>
               <button (click)="onRemove(client.id)">

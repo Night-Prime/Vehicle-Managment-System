@@ -52,11 +52,10 @@ export class ChatsComponent implements OnInit {
     });
     this.socket.on('user-list', (userList: string[]) => {
       this.userList = userList;
-      console.log(this.socket.id);
     });
 
     this.socket.on('message-broadcast', (data: {message: string, userName: string}) => {
-      if(data){
+      if(Object.keys(data || {}).length){
         this.messageList.push({message: data.message, userName: data.userName, mine: false});
       }
     });
@@ -68,6 +67,5 @@ export class ChatsComponent implements OnInit {
     this.messageList.push({message: this.message, userName: this.userName, mine: true});
     this.message = '';
   }
-
 
 }
