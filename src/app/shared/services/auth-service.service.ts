@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable, throwError } from 'rxjs';
+import { Observable, Subject, tap, throwError } from 'rxjs';
 import { Client } from '../interface/client';
 
 @Injectable({
@@ -25,6 +25,13 @@ export class AuthServiceService {
 
   constructor(private http: HttpClient) { }
 
+  private _refreshRequest = new Subject<void>();
+
+  // functio to reload
+  get RefreshRequest(){
+    return this._refreshRequest;
+  }
+
   // user login
   userLogin(user: any) {
     return this.http.post(this.LOGIN_URL, user)
@@ -46,17 +53,29 @@ export class AuthServiceService {
     return this.http.get(`${this.BASE_URL + this.endpoint.client}`);
   }
   AddClient(cred: any):Observable<any>{
-    return this.http.post(`${this.BASE_URL + this.endpoint.client}`, cred);
+    return this.http.post(`${this.BASE_URL + this.endpoint.client}`, cred).pipe(
+      tap(() => {
+        this.RefreshRequest.next();
+      })
+    );
   }
   DeleteClient(index:any):Observable<any> {
     console.log(index)
-    return this.http.delete(`${this.BASE_URL +this.endpoint.client+ "/"+index }`);
+    return this.http.delete(`${this.BASE_URL +this.endpoint.client+ "/"+index }`).pipe(
+      tap(() => {
+        this.RefreshRequest.next();
+      })
+    );
   }
   GetClient(id: any):Observable<any> {
     return this.http.get(`${this.BASE_URL + this.endpoint.client+ "/"+ id}`);
   }
   updateClient(id: any, value:Client):Observable<any> {
-    return this.http.put(`${this.BASE_URL + this.endpoint.client+ "/"+ id}`, value);
+    return this.http.put(`${this.BASE_URL + this.endpoint.client+ "/"+ id}`, value).pipe(
+      tap(() => {
+        this.RefreshRequest.next();
+      })
+    );
   }
 
 

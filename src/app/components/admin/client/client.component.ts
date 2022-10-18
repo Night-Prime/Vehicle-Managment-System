@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, ViewChild, EventEmitter, Ou
 import { AuthServiceService } from 'src/app/shared/services/auth-service.service';
 import { Subject, Subscription } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from './modal/modal.component';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
 
@@ -28,6 +29,10 @@ export class ClientComponent implements OnInit,AfterViewInit {
   }
   ngOnInit(): void {
     this.onGetClients();
+    this.service.RefreshRequest.subscribe(response =>{
+      this.onGetClients();
+      this.dtTrigger.unsubscribe();
+    })
   }
 
   dtOptions: DataTables.Settings = {};
@@ -46,15 +51,10 @@ export class ClientComponent implements OnInit,AfterViewInit {
       },
       (error: any) => console.log(error),
     );
-    // this.service.GetAllClient().toPromise()
-    // .then((response:any) => {
-    //   this.ClientList = response;
-    // });
   }
 
     // Edit data popup
     onGetClientByID(client : any, id:any) {
-      this.reloadComponent();
       this.modal.open(ModalComponent, {
         width: '50%',
         data: client,
@@ -66,19 +66,11 @@ export class ClientComponent implements OnInit,AfterViewInit {
   onRemove(index: number){
     this.service.DeleteClient(index).subscribe(
       (result) => {
-      this.reloadComponent();
+        console.log(result);
       },
       (err:any) => console.log(err)
     );
   }
-
-  // helps in reloading the component
-  reloadComponent() {
-    let currentUrl = this.router.url;
-        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-        this.router.onSameUrlNavigation = 'reload';
-        this.router.navigate([currentUrl]);
-    }
 
   ngOnDestroy():void {
     this.dtTrigger.unsubscribe();

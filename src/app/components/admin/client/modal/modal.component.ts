@@ -46,24 +46,21 @@ export class ModalComponent implements OnInit {
   // POST function of Form Data
   addClient() {
     if (!this.editMode) {
-      this.service.AddClient(this.AddNewClient.value).subscribe(result => {
-        this.modal.close(),
-          this.reloadComponent()
+      this.service.AddClient(this.AddNewClient.value).toPromise().then((result) => {
+        this.modal.close();
       })
+      // .subscribe(result => {
+      //   this.modal.close()
+      // })
     } else {
       this.service.updateClient(this.userId, this.editData = this.AddNewClient.value).subscribe(
         result => {
-          this.modal.close(),
-            this.reloadComponent()
+          this.modal.close()
         });
     }
   }
 
   reloadComponent() {
-    // let currentUrl = this.router.url;
-    // this.router.routeReuseStrategy.shouldReuseRoute = () => false;
-    // this.router.onSameUrlNavigation = 'reload';
-    // this.router.navigate([currentUrl]);
     this.service.GetAllClient().toPromise().then((result) => {
       this.clientList$ = result;
       console.log('Promise Happened!');
@@ -72,6 +69,5 @@ export class ModalComponent implements OnInit {
 
   closeModal() {
     this.modal.close();
-    this.reloadComponent();
   }
 }
